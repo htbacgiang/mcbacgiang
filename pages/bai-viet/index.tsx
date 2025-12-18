@@ -48,7 +48,7 @@ const meta: MetaData = {
     title: "Q&K Bắc Giang - Tin tức & Kiến thức MC và Kỹ năng Giao tiếp",
     description: "Khám phá tin tức, kiến thức và chia sẻ về kỹ năng MC, luyện giọng, sửa ngọng và kỹ năng giao tiếp chuyên nghiệp.",
     type: "website",
-    image: "https://mcbacgiang.com/images/trung-tam-qk-bac-giang.jpg",
+    image: "https://mcbacgiang.com/images/banner-qk-bac-giang.jpg",
     imageWidth: "1200",
     imageHeight: "630",
     url: "https://mcbacgiang.com/bai-viet",
@@ -58,7 +58,7 @@ const meta: MetaData = {
     card: "summary_large_image",
     title: "Q&K Bắc Giang - Tin tức & Kiến thức MC và Kỹ năng Giao tiếp",
     description: "Khám phá tin tức, kiến thức và chia sẻ về kỹ năng MC, luyện giọng, sửa ngọng và kỹ năng giao tiếp chuyên nghiệp.",
-    image: "https://mcbacgiang.com/images/trung-tam-qk-bac-giang.jpg",
+    image: "https://mcbacgiang.com/images/banner-qk-bac-giang.jpg",
   },
 };
 

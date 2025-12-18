@@ -259,7 +259,7 @@ export const getServerSideProps = async () => {
         title: "Q&K Bắc Giang - Khóa học MC và Kỹ năng Giao tiếp",
         description: "Khám phá các khóa học MC chuyên nghiệp, kỹ năng giao tiếp và thuyết trình tại Q&K Bắc Giang.",
         type: "website",
-          image: "https://qk-bacgiang.vn/images/trung-tam-qk-bac-giang.jpg",
+          image: "https://mcbacgiang.com/images/banner-qk-bac-giang.jpg",
           imageWidth: "1200",
         imageHeight: "630",
         url: "https://mcbacgiang.com/khoa-hoc",
@@ -269,7 +269,7 @@ export const getServerSideProps = async () => {
         card: "summary_large_image",
         title: "Q&K Bắc Giang - Khóa học MC và Kỹ năng Giao tiếp",
         description: "Khám phá các khóa học MC chuyên nghiệp, kỹ năng giao tiếp và thuyết trình tại Q&K Bắc Giang.",
-        image: "https://mcbacgiang.com/images/trung-tam-qk-bac-giang.jpg",
+        image: "https://mcbacgiang.com/images/banner-qk-bac-giang.jpg",
       },
     };
 

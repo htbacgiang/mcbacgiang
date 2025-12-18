@@ -117,7 +117,7 @@ export async function getServerSideProps() {
       description:
         "Q&K chuyên đào tạo MC nhí, MC sự kiện, Luyện giọng, Sửa ngọng và Kỹ năng giao tiếp, thuyết trình. Giúp bạn tự tin trước đám đông và máy quay tại Bắc Giang & Bắc Ninh.",
       type: "website",
-      image: "https://mcbacgiang.com/images/trung-tam-qk-bac-giang.jpg",
+      image: "https://mcbacgiang.com/images/banner-qk-bac-giang.jpg",
       imageWidth: "1200",
       imageHeight: "630",
       url: "https://mcbacgiang.com",
@@ -127,7 +127,7 @@ export async function getServerSideProps() {
       title: "Trung tâm MC Q&K – Đào tạo MC, Giao tiếp, Luyện Giọng, Sửa Ngọng tại Bắc Giang & Bắc Ninh",
       description:
         "Q&K: Khóa MC nhí, MC sự kiện, Luyện Giọng, Sửa Ngọng và Kỹ năng giao tiếp cho người lớn tại Bắc Giang & Bắc Ninh.",
-      image: "https://mcbacgiang.com/images/trung-tam-qk-bac-giang.jpg",
+      image: "https://mcbacgiang.com/images/banner-qk-bac-giang.jpg",
     },
   };
 

@@ -79,7 +79,7 @@ export async function getServerSideProps() {
       description:
         "Liên hệ ngay với Trung tâm MC Q&K Bắc Giang để được tư vấn về các khóa học đào tạo MC, luyện giọng, sửa ngọng và kỹ năng giao tiếp. Hotline: 081 699 7000. Đội ngũ chuyên gia sẵn sàng hỗ trợ bạn.",
       type: "website",
-      image: "https://mcbacgiang.com/images/trung-tam-qk-bac-giang.jpg",
+      image: "https://mcbacgiang.com/images/banner-qk-bac-giang.jpg",
       imageWidth: "1200",
       imageHeight: "630",
       url: "https://mcbacgiang.com/lien-he",
@@ -89,7 +89,7 @@ export async function getServerSideProps() {
       title: "Liên hệ Trung tâm MC Q&K Bắc Giang - Tư vấn khóa học đào tạo MC, luyện giọng, sửa ngọng",
       description:
         "Liên hệ ngay với Trung tâm MC Q&K Bắc Giang để được tư vấn về các khóa học đào tạo MC, luyện giọng, sửa ngọng và kỹ năng giao tiếp. Hotline: 081 699 7000. Đội ngũ chuyên gia sẵn sàng hỗ trợ bạn.",
-      image: "https://mcbacgiang.com/images/trung-tam-qk-bac-giang.jpg",
+      image: "https://mcbacgiang.com/images/banner-qk-bac-giang.jpg",
     },
   };
 

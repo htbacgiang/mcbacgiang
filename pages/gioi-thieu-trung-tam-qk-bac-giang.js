@@ -14,7 +14,7 @@ const AboutBTAcademyPage = () => {
     keywords: "MC Q&K Bắc Giang, đào tạo MC, luyện giọng, sửa ngọng, MC nhí, MC sự kiện, kỹ năng giao tiếp, Bắc Giang, Bắc Ninh",
     ogTitle: "Q&K Bắc Giang & Bắc Ninh: Đào tạo MC, Luyện Giọng, Sửa Ngọng Hiệu quả",
     ogDescription: "Trung tâm MC Q&K chuyên sâu đào tạo MC nhí, MC sự kiện, Kỹ năng giao tiếp và Sửa ngọng tại Bắc Giang, Bắc Ninh",
-    ogImage: "/images/trung-tam-qk-bac-giang.jpg",
+    ogImage: "/images/banner-qk-bac-giang.jpg",
     twitterCard: "summary_large_image"
   };
 

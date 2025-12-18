@@ -32,7 +32,7 @@ export default function ClassSchedulePage() {
       title: `Lịch khai giảng ${currentMonth}/${currentYear} - Trung tâm MC Q&K Bắc Giang`,
       description: `Xem lịch khai giảng các khóa học MC, luyện giọng, sửa ngọng tháng ${currentMonth}/${currentYear} tại Trung tâm MC Q&K Bắc Giang.`,
       type: "website",
-      image: "https://mcbacgiang.com/images/mcbacgiang-og.jpg",
+      image: "https://mcbacgiang.com/images/banner-qk-bac-giangg.jpg",
       imageWidth: "1200",
       imageHeight: "630",
       url: `https://mcbacgiang.com/lich-khai-giang/${currentYear}/${currentMonth}`,
@@ -41,7 +41,7 @@ export default function ClassSchedulePage() {
       card: "summary_large_image",
       title: `Lịch khai giảng ${currentMonth}/${currentYear} - Trung tâm MC Q&K Bắc Giang`,
       description: `Xem lịch khai giảng các khóa học MC, luyện giọng, sửa ngọng tháng ${currentMonth}/${currentYear} tại Trung tâm MC Q&K Bắc Giang.`,
-      image: "https://mcbacgiang.com/images/mcbacgiang-og.jpg",
+      image: "https://mcbacgiang.com/images/banner-qk-bac-giang.jpg",
     },
   };
 
