@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { AiOutlineClose } from "react-icons/ai";
 import { HiChevronDown, HiChevronUp } from "react-icons/hi";
-import { FaRegUser, FaHeart, FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaRegUser, FaHeart, FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import { HiOutlineSearch, HiOutlineHome, HiOutlineBookOpen, HiOutlineDocumentText, HiOutlinePhone, HiOutlineCalendar, HiOutlineVideoCamera } from "react-icons/hi";
 
 const ResponsiveMenu = ({ isOpen, toggleMenu, onRegisterClick }) => {
@@ -142,41 +142,50 @@ const ResponsiveMenu = ({ isOpen, toggleMenu, onRegisterClick }) => {
                     {item.name === "Khóa học" ? (
                       <>
                         <Link 
-                          href="/khoa-hoc/lam-chu-giong-noi" 
+                          href="/khoa-hoc/giao-tiep-thuyet-trinh" 
                           className="flex items-center px-4 py-3 rounded-xl text-gray-600 hover:bg-gradient-to-r hover:from-red-50 hover:to-pink-50 hover:text-red-700 transition-all duration-200 group/item"
                           onClick={toggleMenu}
                         >
                           <div className="w-2 h-2 rounded-full bg-gradient-to-r from-red-400 to-pink-500 mr-3 group-hover/item:scale-125 transition-transform duration-200"></div>
-                          <span className="font-bold text-sm uppercase">Làm chủ giọng nói</span>
+                          <span className="font-bold text-sm uppercase">Giao tiếp – thuyết trình</span>
                         </Link>
                         
                         <Link 
-                          href="/khoa-hoc/mc-nang-cao" 
-                          className="flex items-center px-4 py-3 rounded-xl text-gray-600 hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 hover:text-indigo-700 transition-all duration-200 group/item"
-                          onClick={toggleMenu}
-                        >
-                          <div className="w-2 h-2 rounded-full bg-gradient-to-r from-indigo-400 to-purple-500 mr-3 group-hover/item:scale-125 transition-transform duration-200"></div>
-                          <span className="font-bold text-sm uppercase">MC Nâng cao</span>
-                        </Link>
-                        
-                        <Link 
-                          href="/khoa-hoc/giao-tiep-thuyet-trinh" 
+                          href="/khoa-hoc/khoa-hoc-giong-noi" 
                           className="flex items-center px-4 py-3 rounded-xl text-gray-600 hover:bg-gradient-to-r hover:from-teal-50 hover:to-cyan-50 hover:text-teal-700 transition-all duration-200 group/item"
                           onClick={toggleMenu}
                         >
                           <div className="w-2 h-2 rounded-full bg-gradient-to-r from-teal-400 to-cyan-500 mr-3 group-hover/item:scale-125 transition-transform duration-200"></div>
-                          <span className="font-bold text-sm uppercase">Giao tiếp & Thuyết trình</span>
+                          <span className="font-bold text-sm uppercase">Khóa học giọng nói</span>
                         </Link>
                         
                         <Link 
-                          href="/khoa-hoc/mc-nhi-co-ban" 
+                          href="/khoa-hoc/mc-su-kien" 
+                          className="flex items-center px-4 py-3 rounded-xl text-gray-600 hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 hover:text-indigo-700 transition-all duration-200 group/item"
+                          onClick={toggleMenu}
+                        >
+                          <div className="w-2 h-2 rounded-full bg-gradient-to-r from-indigo-400 to-purple-500 mr-3 group-hover/item:scale-125 transition-transform duration-200"></div>
+                          <span className="font-bold text-sm uppercase">MC Sự kiện</span>
+                        </Link>
+                        
+                        <Link 
+                          href="/khoa-hoc/mc-nang-cao-pro-talk" 
                           className="flex items-center px-4 py-3 rounded-xl text-gray-600 hover:bg-gradient-to-r hover:from-yellow-50 hover:to-orange-50 hover:text-yellow-700 transition-all duration-200 group/item"
                           onClick={toggleMenu}
                         >
                           <div className="w-2 h-2 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 mr-3 group-hover/item:scale-125 transition-transform duration-200"></div>
-                          <span className="font-bold text-sm uppercase">MC Nhí Cơ bản</span>
+                          <span className="font-bold text-sm uppercase">MC Nâng cao - Pro Talk</span>
                         </Link>
                         
+                        <Link 
+                          href="/khoa-hoc/mc-nhi" 
+                          className="flex items-center px-4 py-3 rounded-xl text-gray-600 hover:bg-gradient-to-r hover:from-rose-50 hover:to-pink-50 hover:text-rose-700 transition-all duration-200 group/item"
+                          onClick={toggleMenu}
+                        >
+                          <div className="w-2 h-2 rounded-full bg-gradient-to-r from-rose-400 to-pink-500 mr-3 group-hover/item:scale-125 transition-transform duration-200"></div>
+                          <span className="font-bold text-sm uppercase">MC Nhí</span>
+                        </Link>
+
                         <Link 
                           href="/khoa-hoc/mc-nhi-nang-cao" 
                           className="flex items-center px-4 py-3 rounded-xl text-gray-600 hover:bg-gradient-to-r hover:from-rose-50 hover:to-pink-50 hover:text-rose-700 transition-all duration-200 group/item"
@@ -216,15 +225,27 @@ const ResponsiveMenu = ({ isOpen, toggleMenu, onRegisterClick }) => {
             </h3>
             <div className="flex justify-center space-x-4">
               {[
-                { icon: FaFacebook, color: "hover:bg-blue-500", href: "#" },
-                { icon: FaTwitter, color: "hover:bg-blue-400", href: "#" },
-                { icon: FaLinkedin, color: "hover:bg-blue-600", href: "#" },
-                { icon: FaInstagram, color: "hover:bg-pink-500", href: "#" }
+                { name: "Facebook", icon: FaFacebookF, color: "hover:bg-blue-600", href: "https://facebook.com/daotaomcbacgiang" },
+                { name: "Instagram", icon: FaInstagram, color: "hover:bg-pink-600", href: "https://instagram.com/qkmcbacgiang" },
+                { name: "YouTube", icon: FaYoutube, color: "hover:bg-red-600", href: "https://youtube.com/@qkmcbacgiang" },
+                { 
+                  name: "TikTok", 
+                  icon: () => (
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                    </svg>
+                  ),
+                  color: "hover:bg-black",
+                  href: "https://tiktok.com/@qkmcbacgiang"
+                },
               ].map((social, index) => (
                 <Link
                   key={index}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`p-3 bg-white rounded-2xl shadow-lg text-gray-600 ${social.color} transition-all duration-300 hover:scale-110 hover:shadow-xl hover:text-white border border-rose-100`}
+                  aria-label={social.name}
                 >
                   <social.icon size={18} />
                 </Link>

@@ -159,7 +159,6 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen max-w-6xl mx-auto">
       {/* Tabs Navigation */}
-      <div className="h-[70px]"></div>
       {/* Contact Information */}
       <section className="py-20 ">
         <div className="container mx-auto px-4">

@@ -88,36 +88,23 @@ const AboutBTAcademyPage = () => {
         Trung tâm MC Q&K Bắc Giang: Đào tạo MC, Luyện Giọng, Sửa Ngọng Hiệu quả tại Bắc Giang, Bắc Ninh
       </h1>
 
-      <div className="max-w-7xl mx-auto px-4 py-6">
-           {/* Custom Breadcrumb */}
-      <div className="bg-gradient-to-r from-pink-50 to-white border-b border-pink-100">
-        <div className="max-w-7xl mx-auto px-4 py-4">
-          <nav className="flex items-center space-x-2 text-sm md:text-base" aria-label="Breadcrumb">
-            <ol className="flex items-center space-x-2 overflow-hidden">
-              <li className="flex-shrink-0">
-                <Link 
-                  href="/" 
-                  className="flex items-center font-bold text-gray-600 hover:text-pink-600 transition-colors duration-200"
-                >
-                  <Home className="w-4 h-4 mr-1 flex-shrink-0" />
-                  <span className="whitespace-nowrap">Trang chủ</span>
-                </Link>
-              </li>
-              <li className="flex-shrink-0">
-                <ChevronRight className="w-4 h-4 text-gray-400" />
-              </li>
-              <li aria-current="page" className="min-w-0 flex-1">
-                <span className="text-pink-600 font-semibold flex items-center">
-                  <span className="hidden md:inline">Giới thiệu trung tâm Q&K Bắc Giang</span>
-                  <span className="md:hidden truncate">Giới thiệu Q&K Bắc Giang</span>
-                </span>
-              </li>
-            </ol>
-          </nav>
-        </div>
-      </div>
+      <div className="max-w-7xl mx-auto ">
+            {/* Breadcrumb */}
+            <div className="bg-gradient-to-r from-pink-50 to-rose-50 border-b-2 border-rose-200 shadow-sm">
+              <div className="mx-auto px-4 py-5">
+                <div className="flex items-center gap-3 text-base">
+                  <Link href="/" className="font-semibold text-gray-700 hover:text-pink-600 hover:underline whitespace-nowrap transition-colors duration-200">
+                    🏠 Trang chủ
+                  </Link>
+                  <span className="text-pink-400 font-bold text-lg">›</span>
+                  <span className="font-bold text-gray-800 bg-pink-100 px-3 py-1 rounded-full text-sm">
+                    Giới thiệu Q&K Bắc Giang
+                  </span>
+                </div>
+              </div>
+            </div>
         {/* Main Content */}
-        <div className="prose prose-lg blog max-w-none">
+        <div className="prose prose-lg blog max-w-none px-4 py-2">
           
           {/* Section I: Introduction */}
           <div className="bg-white mt-2 rounded-lg mb-2">

@@ -75,16 +75,7 @@ const MainCategories: FC<Props> = ({ onCategorySelect }) => {
         >
           Câu chuyện học viên
         </button>
-        <button
-          onClick={() => handleCategoryClick("Tin tức ngành")}
-          className={`rounded-full px-4 py-2 text-sm sm:text-base transition duration-300 ${
-            activeCategory === "Tin tức ngành"
-              ? "bg-gradient-to-r from-pink-500 to-rose-500 text-white"
-              : "hover:bg-pink-50"
-          }`}
-        >
-          Tin tức ngành
-        </button>
+
       </div>
     </div>
   );

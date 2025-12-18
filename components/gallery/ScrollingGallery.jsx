@@ -283,12 +283,11 @@ const ScrollingGallery = () => {
           }
         }
       `}</style>
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-2">
         {/* Header */}
         <div className="text-center mb-12 relative">
           <div className="flex items-center justify-center mb-4">
-            <FaImages className="text-pink-600 text-3xl mr-3" />
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 uppercase">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 ">
               Hình ảnh hoạt động tại <span className="text-pink-600">Q&K Bắc Giang</span>
             </h2>
           </div>

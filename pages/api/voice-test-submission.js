@@ -108,10 +108,21 @@ async function sendEmailNotification({ email, phone, fileName, filePath, origina
 
     const contactInfo = email ? `Email: ${email}` : `Số điện thoại: ${phone}`;
     
+    // Lấy danh sách email từ biến môi trường (phân tách bằng dấu phẩy)
+    // Hỗ trợ cả ADMIN_EMAIL (một email) và ADMIN_EMAILS (nhiều email)
+    const adminEmails = process.env.ADMIN_EMAILS 
+      ? process.env.ADMIN_EMAILS.split(',').map(e => e.trim()).filter(e => e)
+      : (process.env.ADMIN_EMAIL ? [process.env.ADMIN_EMAIL] : []);
+    
+    if (adminEmails.length === 0) {
+      console.error('No admin email configured');
+      throw new Error('No admin email configured');
+    }
+    
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: process.env.ADMIN_EMAIL || process.env.EMAIL_USER, // Admin email
-      subject: `Bài Test Giọng MC Mới từ ${email || phone} - BT Academy`,
+      to: adminEmails, // Gửi đến nhiều email
+      subject: `Bài Test Giọng MC Mới từ ${email || phone} - Trung tâm MC Q&K Bắc Giang`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #2563eb;">Bài Test Giọng MC Mới</h2>
@@ -152,7 +163,7 @@ async function sendEmailNotification({ email, phone, fileName, filePath, origina
     };
 
     await transporter.sendMail(mailOptions);
-    console.log('Email notification sent successfully to admin');
+    console.log(`Email notification sent successfully to ${adminEmails.length} recipient(s): ${adminEmails.join(', ')}`);
 
   } catch (error) {
     console.error('Error sending email notification:', error);

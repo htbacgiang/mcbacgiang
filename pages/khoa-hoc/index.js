@@ -99,9 +99,8 @@ const AllCoursesPage = ({ meta }) => {
             <div className="flex items-center justify-between">
               <div>
                 <div className="flex items-center space-x-3 mb-3">
-                  <h1 className="text-4xl font-bold text-gray-900">Tất cả khóa học</h1>
+                  <h1 className="text-2xl font-bold text-gray-900">Tất cả khóa học</h1>
                   <div className="bg-pink-100 text-pink-700 px-4 py-2 rounded-full flex items-center space-x-2">
-                    <span className="text-2xl">🎓</span>
                     <span className="font-semibold">{filteredCourses.length} Khóa học</span>
                   </div>
                 </div>
@@ -145,9 +144,7 @@ const AllCoursesPage = ({ meta }) => {
                     <span>List</span>
                   </button>
                 </div>
-                <p className="text-gray-600">
-                  Hiển thị 1-{filteredCourses.length} trong tổng số {filteredCourses.length} khóa học
-                </p>
+            
               </div>
 
               {/* Right Side - Search */}

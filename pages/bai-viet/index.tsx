@@ -160,7 +160,7 @@ const Blogs: NextPage<Props> = ({ initialPosts = [] }) => {
 
       <DefaultLayout>
         <div className="h-[80px]"></div>
-        <div className="pb-12 mt-6 max-w-8xl">
+        <div className="pb-12  max-w-8xl">
           <div className="flex flex-col gap-4 justify-center w-full">
             {/* Breadcrumb */}
             <div className="bg-gradient-to-r from-pink-50 to-rose-50 border-b-2 border-rose-200 shadow-sm">

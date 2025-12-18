@@ -111,7 +111,7 @@ const VideoGallery: React.FC<VideoGalleryProps> = ({
             <div className="text-center mb-6 md:mb-12">
               <div className="w-16 h-1 bg-gray-300 mx-auto mb-4 md:mb-6"></div>
               <h2 className="text-2xl md:text-4xl font-bold mb-2">
-                <span className="bg-gradient-to-r from-red-600 to-purple-600 bg-clip-text text-transparent uppercase">
+                <span className="bg-gradient-to-r from-red-600 to-purple-600 bg-clip-text text-transparent ">
                   Video Học Viên Trung Tâm Đào Tạo MC Q&K Bắc Giang
                 </span>
               </h2>
@@ -122,7 +122,7 @@ const VideoGallery: React.FC<VideoGalleryProps> = ({
           )}
 
           {/* Video Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 px-2">
             {videos.map((video) => (
               <div
                 key={video._id}

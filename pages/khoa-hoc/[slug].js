@@ -154,14 +154,14 @@ const CourseDetail = ({ course, relatedCourses, meta }) => {
       <div className="min-h-screen ">
         {/* Breadcrumb */}
         <div className="bg-gradient-to-r from-pink-50 to-rose-50 border-b-2 border-rose-200 shadow-sm">
-          <div className="max-w-7xl mx-auto px-4 py-5">
+          <div className="max-w-8xl mx-auto px-4 py-5">
             <div className="flex items-center gap-3 text-base">
               <Link href="/khoa-hoc" className="font-semibold text-gray-700 hover:text-pink-600 hover:underline whitespace-nowrap transition-colors duration-200">
-                📚 Khóa học
+                 Khóa học
               </Link>
               <span className="text-pink-400 font-bold text-lg">›</span>
-              <span className="font-bold text-gray-800 bg-pink-100 px-3 py-1 rounded-full text-sm">
-                {trimText(course.title, 35)}
+              <span className="font-bold text-gray-800 bg-pink-100 px-1 py-1 rounded-full text-base">
+                {trimText(course.title, 30)}
               </span>
             </div>
           </div>
@@ -169,12 +169,12 @@ const CourseDetail = ({ course, relatedCourses, meta }) => {
 
 
         {/* Main Content */}
-        <div className="max-w-7xl mx-auto px-4 py-4">
+        <div className="max-w-8xl mx-auto px-1 py-2 blog">
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Left Column - Course Content */}
             <div className="lg:col-span-2 space-y-6">
               {/* Course Overview */}
-              <div className="bg-white rounded-xl shadow-sm">
+              <div className="bg-white">
                 <div className="p-6">
                   <div className="">
                     {/* Course Info */}
@@ -184,7 +184,7 @@ const CourseDetail = ({ course, relatedCourses, meta }) => {
                       </h1>
 
                       {/* Course Meta Info */}
-                      <div className="flex flex-wrap items-center gap-6 mb-4">
+                      <div className="flex flex-wrap items-center gap-4 mb-4">
                         <div className="flex items-center space-x-2">
                           <svg className="w-5 h-5 text-pink-600" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
@@ -229,9 +229,9 @@ const CourseDetail = ({ course, relatedCourses, meta }) => {
 
                     {/* Course Description */}
                     <div>
-                      <div className="prose prose-gray max-w-none">
+                      <div className=" blog max-w-none">
                         {course.content && (
-                          <div className="blog prose prose-lg dark:prose-invert max-w-2xl md:max-w-4xl lg:max-w-5xl">
+                          <div className="blog  dark:prose-invert max-w-2xl md:max-w-4xl lg:max-w-5xl">
                             {parse(course.content)}
                           </div>
                         )}

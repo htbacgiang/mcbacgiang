@@ -1482,7 +1482,9 @@ html, body {
 .prose :where(ul):not(:where([class~="not-prose"] *)) {
     padding-left: 0em !important;
 }
-
+.prose :where(h2 strong):not(:where([class~="not-prose"] *)) {
+  font-weight: 700 !important;
+}
 video {
   transition: opacity 0.3s;
 }
@@ -6165,7 +6167,12 @@ html {
 }
 
 
-
+.visually-hidden {
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 
 

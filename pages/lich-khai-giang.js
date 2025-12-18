@@ -124,14 +124,10 @@ export default function ClassSchedulePage() {
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto text-center">
             <div className="flex items-center justify-center mb-3">
-              <FaGraduationCap className="text-4xl mr-3" aria-hidden="true" />
               <h1 className="text-2xl md:text-3xl font-bold">
                 Lịch khai giảng khóa học MC tháng {currentMonth}/{currentYear}
               </h1>
             </div>
-            <p className="text-lg mb-2 text-pink-100">
-              Khám phá lịch khai giảng các khóa học MC, luyện giọng, sửa ngọng chuyên nghiệp tại Trung tâm MC Q&K Bắc Giang
-            </p>
           </div>
         </div>
       </div>

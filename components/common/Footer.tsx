@@ -25,15 +25,16 @@ const Footer = () => {
 
   const footerLinks = {
     company: [
-      { name: "Về Q&K Bắc Giang", href: "/gioi-thieu" },
+      { name: "Về Q&K Bắc Giang", href: "/gioi-thieu-trung-tam-qk-bac-giang" },
       { name: "Lịch khai giảng", href: "/lich-khai-giang" },
-      { name: "Đội ngũ giảng viên", href: "/gioi-thieu#doi-ngu" }
     ],
     services: [
-      { name: "MC Nhí", href: "/khoa-hoc/mc-nhi" },
+      { name: "Giao tiếp – thuyết trình", href: "/khoa-hoc/giao-tiep-thuyet-trinh" },
+      { name: "Khóa học giọng nói", href: "/khoa-hoc/khoa-hoc-giong-noi" },
       { name: "MC Sự kiện", href: "/khoa-hoc/mc-su-kien" },
-      { name: "Khóa Giọng Nói", href: "/khoa-hoc/giong-noi" },
-      { name: "Kỹ năng mềm", href: "/khoa-hoc/ky-nang-mem" }
+      { name: "MC Nâng cao - Pro Talk", href: "/khoa-hoc/mc-nang-cao-pro-talk" },
+      { name: "MC Nhí", href: "/khoa-hoc/mc-nhi" },
+      { name: "MC Nhí Nâng cao", href: "/khoa-hoc/mc-nhi-nang-cao" }
     ],
     support: [
       { name: "Liên hệ", href: "/lien-he" },

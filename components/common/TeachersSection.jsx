@@ -7,10 +7,10 @@ const TeachersSection = ({ teachers, title = "Đội ngũ giảng viên", subtit
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 uppercase">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 uppercase">
             {title}
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-pink-500 to-rose-500 mx-auto mb-3"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-pink-500 to-rose-500 mx-auto mb-1"></div>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             {subtitle}
           </p>

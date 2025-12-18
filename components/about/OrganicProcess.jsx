@@ -17,7 +17,7 @@ const OrganicProcess = () => {
         {/* Phần tiêu đề */}
         <div className="text-center mb-6 md:mb-16">
          
-          <h2 className="text-base md:text-xl lg:text-3xl font-bold leading-tight mb-2 md:mb-3 uppercase">
+          <h2 className=" lg:text-3xl font-bold leading-tight mb-2 md:mb-3 text-2xl md:text-4xl">
               <span className="text-gray-800">
                 Quy Trình Test Giọng Miễn Phí Tại Trung Tâm MC Q&K Bắc Giang
             </span>

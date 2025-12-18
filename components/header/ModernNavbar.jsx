@@ -117,37 +117,23 @@ const ModernNavbar = () => {
                         {item.name === "Khóa học" ? (
                           <>
                             <Link 
-                              href="/khoa-hoc/lam-chu-giong-noi" 
+                              href="/khoa-hoc/giao-tiep-thuyet-trinh" 
                               className="group/item dropdown-item flex items-center px-6 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-red-50 hover:to-pink-50 hover:text-red-700 transition-all duration-200 relative overflow-hidden"
                             >
                               <div className="w-2 h-2 rounded-full bg-gradient-to-r from-red-400 to-pink-500 mr-3 group-hover/item:scale-125 transition-transform duration-200"></div>
-                              <span className="font-bold uppercase">Làm chủ giọng nói</span>
+                              <span className="font-bold uppercase">Giao tiếp – thuyết trình</span>
                               <div className="ml-auto opacity-0 group-hover/item:opacity-100 transition-opacity duration-200">
                                 <svg className="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                 </svg>
                               </div>
                             </Link>
-                            
                             <Link 
-                              href="/khoa-hoc/mc-nang-cao" 
-                              className="group/item dropdown-item flex items-center px-6 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 hover:text-indigo-700 transition-all duration-200 relative overflow-hidden"
-                            >
-                              <div className="w-2 h-2 rounded-full bg-gradient-to-r from-indigo-400 to-purple-500 mr-3 group-hover/item:scale-125 transition-transform duration-200"></div>
-                              <span className="font-bold uppercase">MC Nâng cao</span>
-                              <div className="ml-auto opacity-0 group-hover/item:opacity-100 transition-opacity duration-200">
-                                <svg className="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                </svg>
-                              </div>
-                            </Link>
-                            
-                            <Link 
-                              href="/khoa-hoc/giao-tiep-thuyet-trinh" 
+                              href="/khoa-hoc/khoa-hoc-giong-noi" 
                               className="group/item dropdown-item flex items-center px-6 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-teal-50 hover:to-cyan-50 hover:text-teal-700 transition-all duration-200 relative overflow-hidden"
                             >
                               <div className="w-2 h-2 rounded-full bg-gradient-to-r from-teal-400 to-cyan-500 mr-3 group-hover/item:scale-125 transition-transform duration-200"></div>
-                              <span className="font-bold uppercase">Giao tiếp & Thuyết trình</span>
+                              <span className="font-bold uppercase">Khóa học giọng nói</span>
                               <div className="ml-auto opacity-0 group-hover/item:opacity-100 transition-opacity duration-200">
                                 <svg className="w-4 h-4 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -156,18 +142,43 @@ const ModernNavbar = () => {
                         </Link>
                             
                             <Link 
-                              href="/khoa-hoc/mc-nhi-co-ban" 
+                              href="/khoa-hoc/mc-su-kien" 
+                              className="group/item dropdown-item flex items-center px-6 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 hover:text-indigo-700 transition-all duration-200 relative overflow-hidden"
+                            >
+                              <div className="w-2 h-2 rounded-full bg-gradient-to-r from-indigo-400 to-purple-500 mr-3 group-hover/item:scale-125 transition-transform duration-200"></div>
+                              <span className="font-bold uppercase">MC Sự kiện</span>
+                              <div className="ml-auto opacity-0 group-hover/item:opacity-100 transition-opacity duration-200">
+                                <svg className="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                              </div>
+                            </Link>
+                            
+                       
+                            <Link 
+                              href="/khoa-hoc/mc-nang-cao-pro-talk" 
                               className="group/item dropdown-item flex items-center px-6 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-yellow-50 hover:to-orange-50 hover:text-yellow-700 transition-all duration-200 relative overflow-hidden"
                             >
                               <div className="w-2 h-2 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 mr-3 group-hover/item:scale-125 transition-transform duration-200"></div>
-                              <span className="font-bold uppercase">MC Nhí Cơ bản</span>
+                              <span className="font-bold uppercase">MC Nâng cao - Pro Talk</span>
                               <div className="ml-auto opacity-0 group-hover/item:opacity-100 transition-opacity duration-200">
                                 <svg className="w-4 h-4 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                 </svg>
                               </div>
                       </Link>
-                            
+                      <Link 
+                              href="/khoa-hoc/mc-nhi" 
+                              className="group/item dropdown-item flex items-center px-6 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-rose-50 hover:to-pink-50 hover:text-rose-700 transition-all duration-200 relative overflow-hidden"
+                            >
+                              <div className="w-2 h-2 rounded-full bg-gradient-to-r from-rose-400 to-pink-500 mr-3 group-hover/item:scale-125 transition-transform duration-200"></div>
+                              <span className="font-bold uppercase">MC Nhí</span>
+                              <div className="ml-auto opacity-0 group-hover/item:opacity-100 transition-opacity duration-200">
+                                <svg className="w-4 h-4 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                              </div>
+                      </Link>
                             <Link 
                               href="/khoa-hoc/mc-nhi-nang-cao" 
                               className="group/item dropdown-item flex items-center px-6 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-rose-50 hover:to-pink-50 hover:text-rose-700 transition-all duration-200 relative overflow-hidden"
