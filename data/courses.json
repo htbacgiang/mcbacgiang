@@ -1,0 +1,534 @@
+[
+  {
+    "id": "mc-nhi-co-ban",
+    "title": "MC Nhí Cơ bản",
+    "subtitle": "Khóa học giúp các bé làm quen và khám phá bản thân, xây dựng nền tảng ban đầu để trở thành một MC nhí tự tin",
+    "description": "Khóa học MC Nhí Cơ bản được thiết kế đặc biệt dành cho trẻ em, giúp các bé phát triển kỹ năng giao tiếp, tự tin thể hiện bản thân và xây dựng nền tảng vững chắc để trở thành MC nhí chuyên nghiệp. Với 10 buổi học được sắp xếp khoa học, các bé sẽ được trải nghiệm từ những kỹ năng cơ bản nhất đến việc thực hành trên sân khấu thực tế.",
+    "duration": "10 buổi",
+    "sessions": 10,
+    "targetAge": "6-12 tuổi",
+    "level": "Cơ bản",
+    "category": "MC Training",
+    "instructor": "Thầy Bình",
+    "instructorRole": "MC Training Specialist",
+    "price": 2500000,
+    "discount": 20,
+    "image": "/images/lop-hoc-mc.jpg",
+    "badge": "POPULAR",
+    "rating": 4.9,
+    "reviews": 45,
+    "students": 120,
+    "schedule": "Thứ 7 - 14:00-16:00",
+    "location": "19 Nguyễn Gia Thiều, Hoàn Kiếm, Hà Nội",
+    "curriculum": [
+      {
+        "session": 1,
+        "title": "Làm quen & Khám phá bản thân",
+        "description": "Giúp các bé làm quen với môi trường học tập, khám phá điểm mạnh và sở thích cá nhân"
+      },
+      {
+        "session": 2,
+        "title": "Luyện phát âm tròn vành, rõ chữ",
+        "description": "Rèn luyện kỹ thuật phát âm chuẩn, rõ ràng và tự nhiên"
+      },
+      {
+        "session": 3,
+        "title": "Giọng nói truyền cảm",
+        "description": "Phát triển khả năng truyền đạt cảm xúc qua giọng nói"
+      },
+      {
+        "session": 4,
+        "title": "Ngôn ngữ cơ thể & Phong thái tự tin",
+        "description": "Học cách sử dụng ngôn ngữ cơ thể hiệu quả và xây dựng phong thái tự tin"
+      },
+      {
+        "session": 5,
+        "title": "Kỹ năng giao tiếp & Ứng xử",
+        "description": "Phát triển kỹ năng giao tiếp và cách ứng xử lịch sự, chuyên nghiệp"
+      },
+      {
+        "session": 6,
+        "title": "Tư duy ngôn ngữ & Xây dựng kịch bản",
+        "description": "Rèn luyện tư duy sáng tạo và kỹ năng viết kịch bản đơn giản"
+      },
+      {
+        "session": 7,
+        "title": "Kỹ năng dẫn sự kiện",
+        "description": "Thực hành dẫn các sự kiện nhỏ, tiệc sinh nhật, lễ hội"
+      },
+      {
+        "session": 8,
+        "title": "Kỹ năng dẫn truyền hình",
+        "description": "Học cách dẫn chương trình truyền hình, làm quen với camera"
+      },
+      {
+        "session": 9,
+        "title": "Ghi hình cuối khóa",
+        "description": "Thực hành ghi hình video demo cá nhân"
+      },
+      {
+        "session": 10,
+        "title": "Tổng kết & Biểu diễn nhận quả, chứng nhận",
+        "description": "Biểu diễn cuối khóa và nhận chứng chỉ hoàn thành"
+      }
+    ],
+    "features": [
+      "Lớp học nhỏ, tối đa 8 học viên",
+      "Giáo trình được thiết kế riêng cho trẻ em",
+      "Thực hành trên sân khấu thực tế",
+      "Ghi hình video demo cá nhân",
+      "Chứng chỉ hoàn thành khóa học",
+      "Hỗ trợ tư vấn sau khóa học"
+    ],
+    "requirements": [
+      "Độ tuổi từ 6-12 tuổi",
+      "Có sự đồng ý và hỗ trợ của phụ huynh",
+      "Không yêu cầu kinh nghiệm trước đó"
+    ]
+  },
+  {
+    "id": "mc-nhi-nang-cao",
+    "title": "MC Nhí Nâng cao",
+    "subtitle": "Khóa học đi sâu vào kỹ năng thuyết trình, phong cách và bản lĩnh sân khấu, giúp các bé tỏa sáng hơn",
+    "description": "Khóa học MC Nhí Nâng cao dành cho những bé đã hoàn thành khóa cơ bản hoặc đã có kinh nghiệm ban đầu. Khóa học tập trung phát triển kỹ năng thuyết trình chuyên sâu, xây dựng phong cách cá nhân và rèn luyện bản lĩnh sân khấu để các bé có thể tự tin tỏa sáng trong mọi hoàn cảnh.",
+    "duration": "10 buổi",
+    "sessions": 10,
+    "targetAge": "8-14 tuổi",
+    "level": "Nâng cao",
+    "category": "MC Training",
+    "instructor": "Cô Thúy",
+    "instructorRole": "Senior MC Trainer",
+    "price": 3500000,
+    "discount": 15,
+    "image": "/images/mc-bich-thuy.jpg",
+    "badge": "ADVANCED",
+    "rating": 4.8,
+    "reviews": 32,
+    "students": 85,
+    "schedule": "Chủ nhật - 14:00-16:30",
+    "location": "19 Nguyễn Gia Thiều, Hoàn Kiếm, Hà Nội",
+    "curriculum": [
+      {
+        "session": 1,
+        "title": "Khám phá Cấu trúc thuyết trình",
+        "description": "Tìm hiểu cấu trúc bài thuyết trình hiệu quả và cách tổ chức ý tưởng"
+      },
+      {
+        "session": 2,
+        "title": "Tạo nên Sự cuốn hút",
+        "description": "Học cách thu hút và giữ chân khán giả từ những giây đầu tiên"
+      },
+      {
+        "session": 3,
+        "title": "Phong cách Trang trọng",
+        "description": "Rèn luyện phong cách dẫn chương trình trang trọng, chính thức"
+      },
+      {
+        "session": 4,
+        "title": "Phong cách Đời thường",
+        "description": "Phát triển phong cách dẫn chương trình gần gũi, tự nhiên"
+      },
+      {
+        "session": 5,
+        "title": "Bản lĩnh Trước đám đông",
+        "description": "Xây dựng sự tự tin và bản lĩnh khi đứng trước đông người"
+      },
+      {
+        "session": 6,
+        "title": "Ngôn ngữ Cơ thể đỉnh cao",
+        "description": "Nâng cao kỹ năng sử dụng ngôn ngữ cơ thể một cách chuyên nghiệp"
+      },
+      {
+        "session": 7,
+        "title": "Hiểu Tâm lý, Phát triển EQ",
+        "description": "Phát triển trí tuệ cảm xúc và hiểu tâm lý khán giả"
+      },
+      {
+        "session": 8,
+        "title": "Sử dụng Công cụ hỗ trợ",
+        "description": "Học cách sử dụng micro, màn hình, slide và các công cụ hỗ trợ khác"
+      },
+      {
+        "session": 9,
+        "title": "Kỹ năng Tương tác với khán giả",
+        "description": "Rèn luyện khả năng tương tác và kết nối với khán giả"
+      },
+      {
+        "session": 10,
+        "title": "Tỏa sáng với Bài thuyết trình hoàn chỉnh",
+        "description": "Thực hiện bài thuyết trình hoàn chỉnh và nhận phản hồi"
+      }
+    ],
+    "features": [
+      "Yêu cầu đã hoàn thành khóa cơ bản hoặc có kinh nghiệm",
+      "Thực hành với các tình huống thực tế",
+      "Coaching cá nhân 1:1",
+      "Video demo chuyên nghiệp",
+      "Chứng chỉ nâng cao",
+      "Cơ hội tham gia sự kiện thực tế"
+    ],
+    "requirements": [
+      "Độ tuổi từ 8-14 tuổi",
+      "Đã hoàn thành khóa MC Nhí Cơ bản hoặc có kinh nghiệm tương đương",
+      "Có khả năng tập trung học trong thời gian dài"
+    ]
+  },
+  {
+    "id": "mc-co-ban",
+    "title": "MC Cơ bản",
+    "subtitle": "Khóa học xây dựng nền tảng vững chắc cho người lớn, giúp họ tự tin hơn trong giao tiếp và đứng trước đám đông",
+    "description": "Khóa học MC Cơ bản dành cho người lớn mới bắt đầu hoặc muốn cải thiện kỹ năng dẫn chương trình. Với chương trình học toàn diện từ cơ bản đến nâng cao, học viên sẽ được trang bị đầy đủ kiến thức và kỹ năng cần thiết để trở thành một MC chuyên nghiệp.",
+    "duration": "10 buổi",
+    "sessions": 10,
+    "targetAge": "18+ tuổi",
+    "level": "Cơ bản",
+    "category": "MC Training",
+    "instructor": "Thầy Nam",
+    "instructorRole": "Professional MC Trainer",
+    "price": 4500000,
+    "discount": 25,
+    "image": "/images/bt-academy.jpg",
+    "badge": "BESTSELLER",
+    "rating": 4.9,
+    "reviews": 128,
+    "students": 350,
+    "schedule": "Thứ 2, 4, 6 - 19:00-21:00",
+    "location": "19 Nguyễn Gia Thiều, Hoàn Kiếm, Hà Nội",
+    "curriculum": [
+      {
+        "session": 1,
+        "title": "Tổng quan Nghề MC, test giọng",
+        "description": "Giới thiệu nghề MC, đánh giá năng lực hiện tại và định hướng phát triển"
+      },
+      {
+        "session": 2,
+        "title": "Khám phá ngôn ngữ: Từ hơi thở đến chuyển động",
+        "description": "Học kỹ thuật hơi thở, phát âm và chuyển động cơ bản"
+      },
+      {
+        "session": 3,
+        "title": "Ngôn ngữ cơ thể và biểu cảm: Tạo dấu ấn cảm xúc",
+        "description": "Rèn luyện ngôn ngữ cơ thể và biểu cảm để tạo ấn tượng mạnh"
+      },
+      {
+        "session": 4,
+        "title": "Kỹ năng xây dựng kịch bản chuyên nghiệp",
+        "description": "Học cách viết và chuẩn bị kịch bản cho các loại chương trình khác nhau"
+      },
+      {
+        "session": 5,
+        "title": "Dẫn Bản Tin Truyền Hình: Kỹ năng và Thực Hành",
+        "description": "Thực hành dẫn bản tin truyền hình với các kỹ thuật chuyên nghiệp"
+      },
+      {
+        "session": 6,
+        "title": "Dẫn Event, Talkshow và xử lý tình huống",
+        "description": "Học cách dẫn sự kiện, talkshow và xử lý các tình huống bất ngờ"
+      },
+      {
+        "session": 7,
+        "title": "Thuyết trình đỉnh cao: Kỹ năng nói và đặt câu hỏi",
+        "description": "Phát triển kỹ năng thuyết trình và nghệ thuật đặt câu hỏi"
+      },
+      {
+        "session": 8,
+        "title": "Làm việc cùng đối tác, khách hàng",
+        "description": "Học cách phối hợp với đồng nghiệp và phục vụ khách hàng"
+      },
+      {
+        "session": 9,
+        "title": "Thực hành Ghi Hình",
+        "description": "Thực hành ghi hình trong studio chuyên nghiệp"
+      },
+      {
+        "session": 10,
+        "title": "Tổng kết và Tốt Nghiệp",
+        "description": "Đánh giá tổng kết và trao chứng chỉ hoàn thành khóa học"
+      }
+    ],
+    "features": [
+      "Giảng viên có nhiều năm kinh nghiệm",
+      "Studio ghi hình chuyên nghiệp",
+      "Thực hành với tình huống thực tế",
+      "Chứng chỉ được công nhận",
+      "Hỗ trợ tìm việc sau khóa học",
+      "Cộng đồng học viên mạnh mẽ"
+    ],
+    "requirements": [
+      "Từ 18 tuổi trở lên",
+      "Không yêu cầu kinh nghiệm trước đó",
+      "Có đam mê với nghề MC",
+      "Cam kết tham gia đầy đủ các buổi học"
+    ]
+  },
+  {
+    "id": "mc-nang-cao",
+    "title": "MC Nâng cao",
+    "subtitle": "Khóa học dành cho những người đã có nền tảng, muốn nâng cao kỹ năng dẫn dắt chuyên nghiệp và xây dựng thương hiệu cá nhân",
+    "description": "Khóa học MC Nâng cao được thiết kế dành cho những học viên đã có kinh nghiệm hoặc đã hoàn thành khóa cơ bản. Khóa học tập trung vào việc nâng cao kỹ năng dẫn dắt chuyên nghiệp, phát triển phong cách cá nhân và xây dựng thương hiệu trong ngành.",
+    "duration": "11 buổi",
+    "sessions": 11,
+    "targetAge": "20+ tuổi",
+    "level": "Nâng cao",
+    "category": "MC Training",
+    "instructor": "Master Hùng",
+    "instructorRole": "Senior MC & Brand Consultant",
+    "price": 6500000,
+    "discount": 10,
+    "image": "/images/lop-hoc-mc.jpg",
+    "badge": "PROFESSIONAL",
+    "rating": 4.8,
+    "reviews": 67,
+    "students": 180,
+    "schedule": "Thứ 3, 5, 7 - 19:30-21:30",
+    "location": "19 Nguyễn Gia Thiều, Hoàn Kiếm, Hà Nội",
+    "curriculum": [
+      {
+        "session": 1,
+        "title": "Dẫn dối chuyên nghiệp",
+        "description": "Nâng cao kỹ thuật dẫn dắt chuyên nghiệp trong mọi hoàn cảnh"
+      },
+      {
+        "session": 2,
+        "title": "Phản xạ ngôn ngữ & chuyển mạch nội dung",
+        "description": "Rèn luyện khả năng phản xạ nhanh và chuyển đổi nội dung linh hoạt"
+      },
+      {
+        "session": 3,
+        "title": "Xử lý tình huống & điều phối chương trình",
+        "description": "Học cách xử lý các tình huống khó khăn và điều phối chương trình hiệu quả"
+      },
+      {
+        "session": 4,
+        "title": "Dẫn truyền hình & livestream",
+        "description": "Kỹ năng dẫn chương trình truyền hình và livestream chuyên nghiệp"
+      },
+      {
+        "session": 5,
+        "title": "Dẫn minigame & hoạt náo sân khấu",
+        "description": "Học cách tổ chức và dẫn dắt các hoạt động tương tác, minigame"
+      },
+      {
+        "session": 6,
+        "title": "Dẫn chương trình trải nghiệm / outdoor",
+        "description": "Kỹ năng dẫn chương trình ngoài trời và các hoạt động trải nghiệm"
+      },
+      {
+        "session": 7,
+        "title": "Dẫn sự kiện chuyên nghiệp: gala, hội nghị",
+        "description": "Thực hành dẫn các sự kiện lớn như gala, hội nghị, lễ trao giải"
+      },
+      {
+        "session": 8,
+        "title": "Thực hành thực tế & coaching 1:1",
+        "description": "Thực hành với sự kiện thực tế và nhận coaching cá nhân"
+      },
+      {
+        "session": 9,
+        "title": "Ghi hình video demo & ảnh truyền thông",
+        "description": "Tạo portfolio chuyên nghiệp với video demo và ảnh truyền thông"
+      },
+      {
+        "session": 10,
+        "title": "Xây dựng thương hiệu cá nhân & định vị nghề nghiệp",
+        "description": "Học cách xây dựng thương hiệu cá nhân và định vị trong ngành"
+      },
+      {
+        "session": 11,
+        "title": "Thi tốt nghiệp & trao chứng chỉ",
+        "description": "Thi cuối khóa và nhận chứng chỉ MC chuyên nghiệp"
+      }
+    ],
+    "features": [
+      "Yêu cầu có kinh nghiệm hoặc hoàn thành khóa cơ bản",
+      "Thực hành với sự kiện thực tế",
+      "Coaching 1:1 với chuyên gia",
+      "Portfolio chuyên nghiệp",
+      "Chứng chỉ MC chuyên nghiệp",
+      "Kết nối mạng lưới trong ngành",
+      "Hỗ trợ phát triển thương hiệu cá nhân"
+    ],
+    "requirements": [
+      "Từ 20 tuổi trở lên",
+      "Đã có kinh nghiệm MC hoặc hoàn thành khóa cơ bản",
+      "Có mục tiêu phát triển nghề nghiệp lâu dài",
+      "Sẵn sàng tham gia sự kiện thực tế"
+    ]
+  },
+  {
+    "id": "giong-noi-chuyen-nghiep",
+    "title": "Giọng Nói Chuyên nghiệp",
+    "subtitle": "Khóa học giúp học viên khám phá và hoàn thiện giọng nói của mình, khắc phục các lỗi phát âm để tự tin hơn",
+    "description": "Khóa học Giọng Nói Chuyên nghiệp được thiết kế đặc biệt để giúp học viên cải thiện và hoàn thiện giọng nói của mình. Từ việc khắc phục các lỗi phát âm cơ bản đến việc phát triển phong cách giọng nói riêng biệt, khóa học sẽ giúp bạn tự tin giao tiếp trong mọi hoàn cảnh.",
+    "duration": "10 buổi",
+    "sessions": 10,
+    "targetAge": "16+ tuổi",
+    "level": "Tất cả cấp độ",
+    "category": "Voice Training",
+    "instructor": "Cô Linh",
+    "instructorRole": "Voice & Speech Specialist",
+    "price": 3800000,
+    "discount": 20,
+    "image": "/images/mc-bich-thuy.jpg",
+    "badge": "SPECIALIZED",
+    "rating": 4.9,
+    "reviews": 89,
+    "students": 245,
+    "schedule": "Thứ 2, 4 - 18:00-20:00",
+    "location": "19 Nguyễn Gia Thiều, Hoàn Kiếm, Hà Nội",
+    "curriculum": [
+      {
+        "session": 1,
+        "title": "Khám giọng nói & Định hình phong cách cá nhân",
+        "description": "Đánh giá giọng nói hiện tại và xác định hướng phát triển phù hợp"
+      },
+      {
+        "session": 2,
+        "title": "Hơi thở chuyên sâu và kiểm soát hơi",
+        "description": "Rèn luyện kỹ thuật hơi thở đúng cách để có giọng nói ổn định"
+      },
+      {
+        "session": 3,
+        "title": "Sửa lỗi phát âm: nói ngọng và lỗi thanh dấu",
+        "description": "Khắc phục các lỗi phát âm thường gặp như nói ngọng, sai thanh điệu"
+      },
+      {
+        "session": 4,
+        "title": "Kỹ thuật khẩu hình và độ mở miệng",
+        "description": "Học cách điều chỉnh khẩu hình để có âm thanh rõ ràng, chuẩn xác"
+      },
+      {
+        "session": 5,
+        "title": "Luyện hơi và trường hơi chuyên sâu",
+        "description": "Phát triển sức bền giọng nói và khả năng kiểm soát hơi thở"
+      },
+      {
+        "session": 6,
+        "title": "Nhịp điệu và ngữ điệu khi nói",
+        "description": "Rèn luyện nhịp điệu và ngữ điệu để giọng nói sinh động, hấp dẫn"
+      },
+      {
+        "session": 7,
+        "title": "Kiểm soát tốc độ và cao độ giọng nói",
+        "description": "Học cách điều chỉnh tốc độ nói và cao độ giọng phù hợp với từng tình huống"
+      },
+      {
+        "session": 8,
+        "title": "Làm chủ giao tiếp, loại bỏ căng thẳng",
+        "description": "Phát triển sự tự tin trong giao tiếp và giảm căng thẳng khi nói"
+      },
+      {
+        "session": 9,
+        "title": "Thực hành với kịch bản và làm chủ phong cách cá nhân",
+        "description": "Ứng dụng kỹ năng đã học vào thực tế với các kịch bản đa dạng"
+      },
+      {
+        "session": 10,
+        "title": "Tổng kết và thử thách cuối khóa",
+        "description": "Đánh giá tiến bộ và thực hiện bài test cuối khóa"
+      }
+    ],
+    "features": [
+      "Đánh giá giọng nói cá nhân chi tiết",
+      "Bài tập luyện tập cá nhân hóa",
+      "Ghi âm so sánh trước và sau khóa học",
+      "Tài liệu luyện tập tại nhà",
+      "Chứng chỉ hoàn thành khóa học",
+      "Tư vấn phát triển giọng nói lâu dài"
+    ],
+    "requirements": [
+      "Từ 16 tuổi trở lên",
+      "Không yêu cầu kinh nghiệm trước đó",
+      "Có mong muốn cải thiện giọng nói",
+      "Sẵn sàng thực hành đều đặn"
+    ]
+  },
+  {
+    "id": "storytelling",
+    "title": "Storytelling",
+    "subtitle": "Khóa học đào tạo kỹ năng kể chuyện bằng video, giúp học viên truyền tải thông điệp một cách ấn tượng và truyền cảm hứng",
+    "description": "Khóa học Storytelling tập trung vào việc phát triển kỹ năng kể chuyện qua video - một kỹ năng thiết yếu trong thời đại số. Học viên sẽ học cách xây dựng câu chuyện hấp dẫn, sử dụng công nghệ hiện đại và tạo ra những nội dung truyền cảm hứng mạnh mẽ.",
+    "duration": "10 buổi",
+    "sessions": 10,
+    "targetAge": "18+ tuổi",
+    "level": "Cơ bản đến nâng cao",
+    "category": "Content Creation",
+    "instructor": "Thầy Minh",
+    "instructorRole": "Content Creator & Storytelling Expert",
+    "price": 4200000,
+    "discount": 15,
+    "image": "/images/bt-academy.jpg",
+    "badge": "TRENDING",
+    "rating": 4.7,
+    "reviews": 73,
+    "students": 156,
+    "schedule": "Thứ 6 - 19:00-21:30, Chủ nhật - 14:00-16:30",
+    "location": "19 Nguyễn Gia Thiều, Hoàn Kiếm, Hà Nội",
+    "curriculum": [
+      {
+        "session": 1,
+        "title": "Xác định mục tiêu – Ai bạn là và vì sao bạn cần kể câu chuyện?",
+        "description": "Khám phá bản thân và xác định mục tiêu kể chuyện cá nhân"
+      },
+      {
+        "session": 2,
+        "title": "Cấu trúc Một Video Truyền Cảm hứng",
+        "description": "Học cách xây dựng cấu trúc video hiệu quả và cuốn hút"
+      },
+      {
+        "session": 3,
+        "title": "Quay Video Bằng Smartphone",
+        "description": "Kỹ thuật quay video chuyên nghiệp bằng điện thoại thông minh"
+      },
+      {
+        "session": 4,
+        "title": "Luyện Giọng & Biểu cảm Trước Ống Kính",
+        "description": "Rèn luyện kỹ năng thể hiện trước camera một cách tự nhiên"
+      },
+      {
+        "session": 5,
+        "title": "Dựng Video Cơ Bản Trên Smartphone",
+        "description": "Học cách edit video cơ bản bằng các app trên điện thoại"
+      },
+      {
+        "session": 6,
+        "title": "Ứng dụng ChatGPT Để Hỗ trợ",
+        "description": "Sử dụng AI để hỗ trợ viết kịch bản và ý tưởng sáng tạo"
+      },
+      {
+        "session": 7,
+        "title": "Xây dựng Hình ảnh Cá nhân Trên Mạng Xã hội",
+        "description": "Chiến lược xây dựng thương hiệu cá nhân trên các nền tảng số"
+      },
+      {
+        "session": 8,
+        "title": "Chọn Nền tảng Để Lan Tỏa Câu Chuyện",
+        "description": "Tìm hiểu và lựa chọn nền tảng phù hợp để chia sẻ nội dung"
+      },
+      {
+        "session": 9,
+        "title": "Biến Video thành Cầu Nối Thiện Nguyện",
+        "description": "Sử dụng storytelling để tạo tác động tích cực đến cộng đồng"
+      },
+      {
+        "session": 10,
+        "title": "Tổng kết Hành Trình – Nhận Xét và Gợi Ý Phát triển",
+        "description": "Đánh giá tổng kết và lập kế hoạch phát triển dài hạn"
+      }
+    ],
+    "features": [
+      "Học cách sử dụng smartphone để tạo nội dung chuyên nghiệp",
+      "Ứng dụng AI trong sáng tạo nội dung",
+      "Xây dựng chiến lược truyền thông cá nhân",
+      "Thực hành với các dự án thực tế",
+      "Hướng dẫn tối ưu hóa nội dung cho từng nền tảng",
+      "Cộng đồng creator hỗ trợ lẫn nhau"
+    ],
+    "requirements": [
+      "Từ 18 tuổi trở lên",
+      "Có smartphone với camera tốt",
+      "Không yêu cầu kinh nghiệm làm video trước đó",
+      "Có mong muốn chia sẻ và truyền cảm hứng"
+    ]
+  }
+]

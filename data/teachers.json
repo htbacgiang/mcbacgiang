@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "name": "MC Hồng Quyên",
+    "role": "MC/BTV chuyên nghiệp",
+    "imageUrl": "/images/mc-hong-quyen-1.webp",
+    "description": "MC/BTV với 8 năm kinh nghiệm trong lĩnh vực báo chí, truyền hình. Hiện đang làm việc tại Truyền hình Quốc hội Việt Nam và Đài truyền hình Kỹ thuật số VTC.",
+    "experience": "8+ năm kinh nghiệm",
+    "specialties": [
+      "MC/BTV Truyền hình",
+      "MC sự kiện",
+      "Đào tạo MC trẻ em",
+      "Đào tạo MC người lớn"
+    ],
+    "achievements": [
+      "• MC/BTV Truyền hình Quốc hội Việt Nam",
+      "• MC/BTV Đài truyền hình Kỹ thuật số VTC",
+      "• 6 năm kinh nghiệm làm MC sự kiện tại Bắc Giang và Hà Nội",
+      "• Chuyên gia đào tạo MC trẻ em và người lớn"
+    ],
+    "socialLinks": {
+      "facebook": "https://www.facebook.com/hong.quyen.645039",
+      "instagram": "https://www.instagram.com/hongquyen_1999",
+      "linkedin": "#",
+      "tiktok": "#",
+      "youtube": "#"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Phương Thúy",
+    "role": "Chuyên gia MC Sự kiện & Phát triển MC Nhí",
+    "imageUrl": "/images/co-thuy-panda.jpg",
+    "description": "Giáo viên Phương Thúy là người trực tiếp xây dựng sự tự tin và đam mê cho các học viên nhí, đồng thời truyền đạt kỹ năng dẫn dắt sự kiện thực tế cho học viên người lớn.",
+    "experience": "3 năm đào tạo MC nhí, 5 năm MC sự kiện",
+    "specialties": [
+      "Đào tạo MC nhí tự tin, hoạt ngôn",
+      "MC sự kiện, hoạt náo sân khấu",
+      "Voice talent đọc quảng cáo"
+    ],
+    "achievements": [
+      "• 3 năm giảng dạy bộ môn MC nhí, giúp hàng trăm học viên tự tin",
+      "• 5 năm kinh nghiệm làm MC sự kiện, am hiểu kịch bản và khuấy động sân khấu",
+      "• Thực hiện nhiều dự án đọc voice quảng cáo cho các doanh nghiệp"
+    ],
+    "socialLinks": {
+      "facebook": "https://www.facebook.com/thuy.panda.956018",
+      "instagram": "#",
+      "linkedin": "#",
+      "tiktok": "#",
+      "youtube": "#"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Dương Ngoan",
+    "role": "Chuyên trách MC Song Ngữ Nhí & Anh ngữ Giao tiếp",
+    "imageUrl": "/images/co-ngoan.jpg",
+    "description": "Giáo viên Dương Ngoan chuyên trách phát triển khả năng MC song ngữ, mang đến môi trường học tập quốc tế và giúp học viên nhí có thêm lợi thế cạnh tranh toàn cầu.",
+    "experience": "MC song ngữ & đào tạo Anh ngữ giao tiếp",
+    "specialties": [
+      "Phương pháp quản lý và giảng dạy Anh ngữ tại các trung tâm uy tín",
+      "Kết hợp kỹ năng MC và giao tiếp tiếng Anh cho sân khấu song ngữ"
+    ],
+    "achievements": [
+      "• Xây dựng chương trình MC song ngữ giúp học viên tự tin dẫn dắt chương trình tiếng Anh",
+      "• Hỗ trợ học viên tương tác với khán giả nước ngoài một cách tự nhiên"
+    ],
+    "socialLinks": {
+      "facebook": "#",
+      "instagram": "#",
+      "linkedin": "#",
+      "tiktok": "#",
+      "youtube": "#"
+    }
+  }
+]

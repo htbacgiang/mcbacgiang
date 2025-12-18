@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://mcbacgiang.com/
+
+# Sitemaps
+Sitemap: https://mcbacgiang.com/sitemap.xml

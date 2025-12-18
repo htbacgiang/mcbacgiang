@@ -1,0 +1,197 @@
+/* Gallery Scrolling Animations */
+@keyframes scroll-right-to-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-left-to-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Fade in animation when component loads */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-scroll-right-to-left {
+  animation: scroll-right-to-left 30s linear infinite;
+}
+
+.animate-scroll-left-to-right {
+  animation: scroll-left-to-right 30s linear infinite;
+}
+
+/* Gallery container fade in */
+.gallery-container {
+  animation: fadeInUp 1s ease-out;
+}
+
+/* Smooth continuous animation - no pause on hover for auto-run */
+.animate-scroll-right-to-left,
+.animate-scroll-left-to-right {
+  animation-play-state: running;
+}
+
+/* Optional: Slightly slow down on hover instead of pause */
+.animate-scroll-right-to-left:hover {
+  animation-duration: 45s;
+}
+
+.animate-scroll-left-to-right:hover {
+  animation-duration: 45s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .animate-scroll-right-to-left {
+    animation: scroll-right-to-left 25s linear infinite;
+  }
+  
+  .animate-scroll-left-to-right {
+    animation: scroll-left-to-right 25s linear infinite;
+  }
+}
+
+@media (max-width: 768px) {
+  .animate-scroll-right-to-left {
+    animation: scroll-right-to-left 20s linear infinite;
+  }
+  
+  .animate-scroll-left-to-right {
+    animation: scroll-left-to-right 20s linear infinite;
+  }
+}
+
+@media (max-width: 480px) {
+  .animate-scroll-right-to-left {
+    animation: scroll-right-to-left 15s linear infinite;
+  }
+  
+  .animate-scroll-left-to-right {
+    animation: scroll-left-to-right 15s linear infinite;
+  }
+}
+
+/* Gallery item hover effects */
+.gallery-item {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-item:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Lightbox enhancements */
+.lightbox-backdrop {
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.95);
+}
+
+.lightbox-image {
+  transition: all 0.3s ease;
+  animation: lightboxZoomIn 0.3s ease-out;
+}
+
+.lightbox-nav-button {
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.lightbox-nav-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+/* Lightbox animations */
+@keyframes lightboxZoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Lightbox UI elements */
+.lightbox-top-bar {
+  animation: slideInFromTop 0.4s ease-out;
+}
+
+.lightbox-bottom-bar {
+  animation: slideInFromBottom 0.4s ease-out;
+}
+
+.lightbox-thumbnail {
+  transition: all 0.2s ease;
+}
+
+.lightbox-thumbnail:hover {
+  transform: scale(1.05);
+}
+
+/* Mobile lightbox adjustments */
+@media (max-width: 768px) {
+  .lightbox-thumbnail {
+    width: 12px;
+    height: 9px;
+  }
+  
+  .lightbox-nav-button {
+    padding: 8px;
+    font-size: 18px;
+  }
+}
+
+/* Loading states */
+.gallery-item img {
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item img[data-loaded="false"] {
+  opacity: 0;
+}
+
+.gallery-item img[data-loaded="true"] {
+  opacity: 1;
+}

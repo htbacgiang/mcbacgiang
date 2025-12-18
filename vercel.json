@@ -1,0 +1,13 @@
+{
+  "functions": {
+    "pages/api/**/*.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "crons": [
+    {
+      "path": "/api/cron/send-daily-emails",
+      "schedule": "0 7 * * *"
+    }
+  ]
+}
