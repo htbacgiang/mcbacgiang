@@ -37,8 +37,8 @@ const HeroBanner = () => {
         <div className="absolute bottom-10 right-1/4 w-[300px] h-[300px] bg-gradient-to-br from-rose-200 to-pink-100 blur-3xl rounded-full" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-28 sm:pt-24 lg:pt-20 pb-16 min-h-screen lg:grid lg:grid-cols-2 lg:items-center gap-10 items-center flex flex-col justify-center">
-        <div className="space-y-8 text-center lg:text-left">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-16 sm:pt-24 lg:pt-20 md:pb-16 pb-6 min-h-screen lg:grid lg:grid-cols-2 lg:items-center md:gap-10 gap-1 items-center flex flex-col justify-center">
+        <div className="space-y-8 text-center lg:text-left order-1 lg:order-1">
           <div className="inline-flex items-center gap-3 bg-white/70 backdrop-blur-lg border border-rose-100 px-4 py-2 rounded-full shadow-sm">
             <span className="text-pink-500 text-xl">💡</span>
             <span className="text-sm font-semibold text-pink-500">
@@ -46,7 +46,7 @@ const HeroBanner = () => {
               </span>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3">
             <p className="text-2xl sm:text-4xl font-bold leading-tight tracking-tight">
               <span className="block text-slate-900">
                 Trung tâm MC{" "}
@@ -105,7 +105,7 @@ const HeroBanner = () => {
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-xl mx-auto lg:mx-0">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-xl mx-auto lg:mx-0 hidden lg:grid">
             {benefits.map((item) => (
               <div
                 key={item}
@@ -117,14 +117,14 @@ const HeroBanner = () => {
           </div>
         </div>
 
-        <div className="relative mt-12 lg:mt-0">
+        <div className="relative md:mt-12 mt-1 order-2 lg:order-2">
           <div className="relative max-w-full mx-auto">
             <div className="relative overflow-hidden">
               <Image
                 src="/images/doi-ngu-giang-vien.webp"
                   alt="Đội Ngũ Giảng Viên"
                   width={900}
-                height={900}
+                height={400}
                 className="w-full h-full object-cover"
                 priority
               />
@@ -133,6 +133,17 @@ const HeroBanner = () => {
        
             
           </div>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-xl mx-auto lg:mx-0 order-3 lg:hidden">
+          {benefits.map((item) => (
+            <div
+              key={item}
+              className="bg-white/90 backdrop-blur-lg border border-rose-100 rounded-2xl px-3 py-2 sm:px-4 sm:py-4 text-sm font-semibold text-slate-700 shadow-sm hover:shadow-md transition-all text-center min-h-[72px] flex items-center justify-center hover:-translate-y-0.5"
+            >
+              {item}
+            </div>
+          ))}
         </div>
       </div>
 

@@ -4,7 +4,7 @@
 .helpContainer {
   position: fixed;
   bottom: 68px;
-  left: 1px;
+  right: 1px;
   align-items: center;
   z-index: 999;
   pointer-events: none; /* Prevent clicks on the container itself */
@@ -166,8 +166,8 @@
 
 @media (max-width: 768px) {
   .helpContainer {
-    right: -20px;
-    bottom: 100px;
+    right: 1px;
+    bottom: 15px;
   }
   
   .phoneRing,
