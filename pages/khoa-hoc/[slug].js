@@ -161,6 +161,7 @@ const CourseDetail = ({ course, relatedCourses, meta }) => {
               </Link>
               <span className="text-pink-400 font-bold text-lg">›</span>
               <span className="font-bold text-gray-800 bg-pink-100 px-1 py-1 rounded-full text-base">
+                
                 {trimText(course.title, 30)}
               </span>
             </div>
@@ -169,7 +170,7 @@ const CourseDetail = ({ course, relatedCourses, meta }) => {
 
 
         {/* Main Content */}
-        <div className="max-w-8xl mx-auto px-10 py-2 blog">
+        <div className="max-w-8xl mx-auto py-2 blog">
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Left Column - Course Content */}
             <div className="lg:col-span-2 space-y-6">
@@ -231,7 +232,8 @@ const CourseDetail = ({ course, relatedCourses, meta }) => {
                     <div>
                       <div className=" blog max-w-none">
                         {course.content && (
-                          <div className="blog  dark:prose-invert max-w-2xl md:max-w-4xl lg:max-w-5xl">
+              <div className="blog prose prose-lg dark:prose-invert max-w-2xl md:max-w-4xl lg:max-w-5xl">
+
                             {parse(course.content)}
                           </div>
                         )}
