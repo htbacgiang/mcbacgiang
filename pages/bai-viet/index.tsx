@@ -170,7 +170,7 @@ const Blogs: NextPage<Props> = ({ initialPosts = [] }) => {
                     🏠 Trang chủ
                   </Link>
                   <span className="text-pink-400 font-bold text-lg">›</span>
-                  <span className="font-bold text-gray-800 bg-pink-100 px-3 py-1 rounded-full text-sm">
+                  <span className="font-bold text-gray-800 bg-pink-100 px-3 py-1 rounded-full">
                     Bài viết & Chia sẻ
                   </span>
                 </div>

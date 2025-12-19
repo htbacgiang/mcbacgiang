@@ -945,30 +945,82 @@ html, body {
 }
 
 .blog h2 strong {
+  font-weight: 500 !important;
   font-size: 1.2em !important;
-  margin-top: 0px !important;
+  margin-top: 5px !important;
   margin-bottom: 5px !important;
+  line-height: 1.5rem !important;
+  margin-top: 10px !important;
+
+ }
+ .blog img{
+  margin-bottom: 10px !important;
+  margin-top: 10px !important;
+
  }
  .blog h2  {
+  font-weight: 500 !important;
   font-size: 1.2em !important;
   margin-top: 0px !important;
   margin-bottom: 5px !important;
+  line-height: 1.5rem !important;
+  margin-top: 10px !important;
  }
  .blog h3 {
   font-size: 1.1em !important;
   margin-top: 0 !important;
   margin-bottom: 5px !important;
+  margin-top: 6px !important;
  }
  .blog h3 strong {
   font-weight: 500 !important;
   margin-top: 0 !important;
   margin-bottom: 5px !important;
+  margin-top: 6px !important;
  }
  .blog p {
   font-size: 18px !important;
   margin-top: 0px !important;
   margin-bottom: 0px !important;
  }
+ .blog li {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+ }
+ .blog ul {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+ }
+/* Editor paragraph spacing - tăng khoảng cách giữa các đoạn trong editor */
+.prose p {
+  line-height: 1.75 !important;
+}
+
+.prose p:first-child {
+  margin-top: 0 !important;
+}
+
+.prose p:last-child {
+  margin-bottom: 0 !important;
+}
+.prose figure {
+  margin-bottom: 0 !important;
+  text-align: center !important;
+}
+
+/* Đảm bảo khoảng cách cho editor content */
+.ProseMirror p {
+  margin-top: 1em !important;
+  margin-bottom: 1em !important;
+}
+
+.ProseMirror p:first-child {
+  margin-top: 0 !important;
+}
+
+.ProseMirror p:last-child {
+  margin-bottom: 0 !important;
+}
  .blog a{
   font-weight: 400 !important;
   font-style: italic !important;
@@ -1478,10 +1530,7 @@ html, body {
 .prose :where(h4):not(:where([class~="not-prose"] *)) {
   margin-top: 0em !important;
 }
-/* Override margin-top cho h4 trong prose */
-.prose :where(ul):not(:where([class~="not-prose"] *)) {
-    padding-left: 0em !important;
-}
+
 .prose :where(h2 strong):not(:where([class~="not-prose"] *)) {
   font-weight: 700 !important;
 }
@@ -3302,7 +3351,68 @@ video[paused] {
   color: inherit;
   padding: 0;
 }
+/* Table Styles */
+.ProseMirror table {
+  border-collapse: collapse;
+  margin: 0;
+  overflow: hidden;
+  table-layout: fixed;
+  width: 100%;
+}
 
+.ProseMirror table td,
+.ProseMirror table th {
+  border: 2px solid #ced4da;
+  box-sizing: border-box;
+  min-width: 1em;
+  padding: 3px 5px;
+  position: relative;
+  vertical-align: top;
+}
+
+.ProseMirror table th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+  text-align: left;
+}
+
+.ProseMirror table .selectedCell:after {
+  background: rgba(200, 200, 255, 0.4);
+  content: "";
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 2;
+}
+
+.ProseMirror table .column-resize-handle {
+  background-color: #adf;
+  bottom: -2px;
+  position: absolute;
+  right: -2px;
+  pointer-events: none;
+  top: 0;
+  width: 4px;
+}
+
+.ProseMirror table p {
+  margin: 0;
+}
+
+/* Table Caption Styles */
+.ProseMirror .table-caption {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #374151;
+  font-size: 0.95em;
+}
+
+.dark .ProseMirror .table-caption {
+  color: #e5e7eb;
+}
 /* Placeholder Styling */
 .ProseMirror p.is-editor-empty:first-child::before {
   color: #94a3b8;

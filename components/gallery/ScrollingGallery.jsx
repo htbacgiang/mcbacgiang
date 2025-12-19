@@ -269,6 +269,13 @@ const ScrollingGallery = () => {
         .lightbox-thumbnail:hover {
           transform: scale(1.1);
         }
+        .thumbnail-strip {
+          scrollbar-width: none; /* Firefox */
+          -ms-overflow-style: none; /* IE, Edge */
+        }
+        .thumbnail-strip::-webkit-scrollbar {
+          display: none; /* Chrome, Safari */
+        }
 
         @media (max-width: 768px) {
           .animate-scroll-right-to-left {
@@ -278,8 +285,8 @@ const ScrollingGallery = () => {
             animation: scroll-left-to-right 30s linear infinite;
           }
           .lightbox-thumbnail {
-            width: 16px;
-            height: 12px;
+            width: 56px;
+            height: 40px;
           }
         }
       `}</style>
@@ -435,7 +442,7 @@ const ScrollingGallery = () => {
 
             {/* Thumbnail Strip */}
             <div className="absolute bottom-8 img-gallery left-0 right-0 z-[9999998]">
-              <div className="flex justify-center space-x-3 px-4 overflow-x-auto">
+              <div className="thumbnail-strip flex justify-center space-x-3 px-4 overflow-x-auto">
                 {galleryImages.slice(Math.max(0, currentIndex - 2), currentIndex + 3).map((image, index) => {
                   const actualIndex = Math.max(0, currentIndex - 2) + index;
                   return (

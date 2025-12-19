@@ -90,18 +90,14 @@ const AboutBTAcademyPage = () => {
 
       <div className="max-w-7xl mx-auto ">
             {/* Breadcrumb */}
-            <div className="bg-gradient-to-r from-pink-50 to-rose-50 border-b-2 border-rose-200 shadow-sm">
-              <div className="mx-auto px-4 py-5">
-                <div className="flex items-center gap-3 text-base">
-                  <Link href="/" className="font-semibold text-gray-700 hover:text-pink-600 hover:underline whitespace-nowrap transition-colors duration-200">
-                    🏠 Trang chủ
-                  </Link>
-                  <span className="text-pink-400 font-bold text-lg">›</span>
-                  <span className="font-bold text-gray-800 bg-pink-100 px-3 py-1 rounded-full text-sm">
-                    Giới thiệu Q&K Bắc Giang
-                  </span>
-                </div>
-              </div>
+            <div className="flex font-bold gap-2 text-base text-gray-600">
+              <Link href="/" className="hover:text-blue-800 whitespace-nowrap">
+                Trang chủ
+              </Link>
+              <span>›</span>
+              <span className="flex font-bold gap-2 mb-2 text-base text-gray-600">
+                Giới thiệu Q&K Bắc Giang
+              </span>
             </div>
         {/* Main Content */}
         <div className="prose prose-lg blog max-w-none px-4 py-2">

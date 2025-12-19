@@ -79,20 +79,6 @@ const AllCoursesPage = ({ meta }) => {
       <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-rose-50">
         {/* Header */}
         <div className="bg-white/80 backdrop-blur-sm border-b border-rose-100">
-          {/* Breadcrumb */}
-          <div className="bg-gradient-to-r from-pink-50 to-rose-50 border-b-2 border-rose-200 shadow-sm">
-            <div className="max-w-7xl mx-auto px-4 py-5">
-              <div className="flex items-center gap-3 text-base">
-                <Link href="/" className="font-semibold text-gray-700 hover:text-pink-600 hover:underline whitespace-nowrap transition-colors duration-200">
-                  Trang chủ
-                </Link>
-                <span className="text-pink-400 font-bold text-lg">›</span>
-                <span className="font-bold text-gray-800 bg-pink-100 px-3 py-1 rounded-full text-sm">
-                  Khóa học
-                </span>
-              </div>
-            </div>
-          </div>
           <div className="max-w-7xl mx-auto px-4 py-6">
 
             {/* Title Section */}

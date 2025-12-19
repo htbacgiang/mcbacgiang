@@ -74,7 +74,7 @@ const AboutSection = () => {
 
             {/* Main Heading with colored words */}
             <div className="space-y-3 md:space-y-4">
-              <h2 className="text-xl md:text-3xl lg:text-4xl font-bold leading-tight">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
                 <span className="text-pink-500">Trung tâm MC Q&K Bắc Giang:</span>
               </h2>
               <h3 className="text-lg md:text-xl lg:text-2xl font-semibold leading-tight text-slate-900">
@@ -90,7 +90,7 @@ const AboutSection = () => {
                 trong Giao tiếp
               </h3>
               
-              <p className="text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed">
+              <p className="text-base md:text-base lg:text-lg text-gray-600 leading-relaxed">
                 Chúng tôi đào tạo những MC và diễn giả tự tin, chuyên nghiệp với khả năng giao tiếp xuất sắc, 
                 giúp bạn tỏa sáng ở mọi nơi bạn đến.
               </p>
@@ -114,7 +114,7 @@ const AboutSection = () => {
                   </div>
                   <div>
                     <h3 className="font-bold text-xs md:text-sm text-gray-900">Thời gian Linh Hoạt</h3>
-                    <p className="text-[10px] md:text-sm text-gray-600 leading-tight">Học mọi lúc mọi nơi theo lịch trình của bạn</p>
+                    <p className="text-[12px] md:text-sm text-gray-600 leading-tight">Học mọi lúc mọi nơi theo lịch trình của bạn</p>
                   </div>
                 </div>
               </div>
@@ -134,7 +134,7 @@ const AboutSection = () => {
                   </div>
                   <div>
                     <h3 className="font-bold text-xs md:text-sm text-gray-900">Hỗ Trợ Trọn Đời</h3>
-                    <p className="text-[10px] md:text-sm text-gray-600 leading-tight">Đội ngũ hỗ trợ luôn sẵn sàng giúp đỡ bạn</p>
+                    <p className="text-[12px] md:text-sm text-gray-600 leading-tight">Đội ngũ hỗ trợ luôn sẵn sàng giúp đỡ bạn</p>
                   </div>
                 </div>
               </div>

@@ -8,8 +8,8 @@ export const locationOptions = [
 
   {
     code: "Online/Doanh nghiệp",
-    name: "Đào tạo Online / Tại doanh nghiệp",
-    address: "Linh hoạt theo lịch của học viên hoặc doanh nghiệp"
+    name: "Học Online",
+    address: "Học Online linh hoạt theo lịch của học viên"
   }
 ];
 

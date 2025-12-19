@@ -13,15 +13,7 @@ import {
 } from "react-icons/fa";
 
 const Footer = () => {
-  const [location, setLocation] = useState({ ip: "", city: "", country: "" });
   const currentYear = new Date().getFullYear();
-
-  useEffect(() => {
-    fetch("/api/location")
-      .then((res) => res.json())
-      .then((data) => setLocation(data))
-      .catch(() => setLocation({ ip: "Không xác định", city: "N/A", country: "N/A" }));
-  }, []);
 
   const footerLinks = {
     company: [
@@ -267,9 +259,9 @@ const Footer = () => {
         <div className="border-t border-pink-200 py-4">
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row items-center justify-between">
-              <div className="text-center md:text-left mb-4 md:mb-0">
-                <p className="text-gray-700">
-                  © {currentYear} Trung Tâm MC Q&K Bắc Giang. Tất cả quyền được bảo lưu.
+              <div className="text-center md:text-left mb-2 md:mb-0">
+                <p className="text-gray-700 font-bold">
+                  © {currentYear} Trung Tâm MC Q&K Bắc Giang
                 </p>
             
               </div>
@@ -287,12 +279,7 @@ const Footer = () => {
                 >
                   Điều khoản sử dụng
                 </Link>
-                <Link 
-                  href="/api/sitemap.xml" 
-                  className="text-gray-700 hover:text-pink-600 transition-colors text-sm"
-                >
-                  Sơ đồ trang web
-                </Link>
+             
               </div>
             </div>
           </div>
