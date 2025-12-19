@@ -35,7 +35,7 @@ export default function ContactPage() {
   const contactInfo = {
     address: "Số 1 Nguyễn Văn Linh, Phường Bắc Giang, tỉnh Bắc Ninh",
     phone: "081 699 7000",
-    email: "",
+    email: "lienhe@mcbacgiang.com",
     workingHours: {
       weekdays: "Thứ 2 - Thứ 7: 8:00 - 21:00",
       weekend: "Chủ nhật: 9:00 - 21:00"
@@ -158,10 +158,12 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen max-w-6xl mx-auto">
+    <div className="h-[80px]"></div>
+
       {/* Tabs Navigation */}
       {/* Contact Information */}
       <section className="py-20 ">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Info */}
             <div>
@@ -175,7 +177,7 @@ export default function ContactPage() {
                     <FaMapMarkerAlt className="text-pink-600 text-xl" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">Địa chỉ trung tâm</h3>
+                    <h3 className="text-lg font-bold text-gray-900 ">Địa chỉ trung tâm</h3>
                     <p className="text-gray-700 leading-relaxed">{contactInfo.address}</p>
                   </div>
                 </div>
@@ -185,7 +187,7 @@ export default function ContactPage() {
                 <FaPhone className="text-pink-600 text-xl" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">Hotline</h3>
+                    <h3 className="text-lg font-bold text-gray-900">Hotline</h3>
                     <a 
                       href={`tel:${contactInfo.phone.replace(/\s/g, '')}`}
                       className="font-medium text-lg text-pink-600 hover:text-pink-700 transition-colors"
@@ -218,7 +220,7 @@ export default function ContactPage() {
                     <FaClock className="text-pink-600 text-xl" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">Giờ làm việc</h3>
+                    <h3 className="text-lg font-bold text-gray-900">Giờ làm việc</h3>
                     <p className="text-gray-700">{contactInfo.workingHours.weekdays}</p>
                     <p className="text-gray-700">{contactInfo.workingHours.weekend}</p>
                   </div>

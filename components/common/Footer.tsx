@@ -123,7 +123,7 @@ const Footer = () => {
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
                   {/* Company */}
                   <div>
-                    <p className="text-lg font-bold mb-6 text-gray-900 hover:text-pink-600 transition-colors duration-300">Công ty</p>
+                    <p className="text-lg font-bold mb-3 text-gray-900 hover:text-pink-600 transition-colors duration-300">Công ty</p>
                     <ul className="space-y-3">
                       {footerLinks.company.map((link, index) => (
                         <li key={index}>
@@ -140,7 +140,7 @@ const Footer = () => {
 
                   {/* Services */}
                   <div>
-                    <p className="text-lg font-bold mb-6 text-gray-900 hover:text-pink-600 transition-colors duration-300">Khóa học</p>
+                    <p className="text-lg font-bold mb-3 text-gray-900 hover:text-pink-600 transition-colors duration-300">Khóa học</p>
                     <ul className="space-y-3">
                       {footerLinks.services.map((link, index) => (
                         <li key={index}>
@@ -157,7 +157,7 @@ const Footer = () => {
 
                   {/* Support */}
                   <div>
-                    <p className="text-lg font-bold mb-6 text-gray-900 hover:text-pink-600 transition-colors duration-300">Hỗ trợ</p>
+                    <p className="text-lg font-bold mb-3 text-gray-900 hover:text-pink-600 transition-colors duration-300">Hỗ trợ</p>
                     <ul className="space-y-3">
                       {footerLinks.support.map((link, index) => (
                         <li key={index}>
@@ -176,14 +176,14 @@ const Footer = () => {
 
               {/* Contact Info */}
               <div className="lg:col-span-1">
-                <p className="text-lg font-bold mb-6 text-gray-900 hover:text-pink-600 transition-colors duration-300">Liên hệ</p>
+                <p className="text-lg font-bold mb-3 text-gray-900 hover:text-pink-600 transition-colors duration-300">Liên hệ</p>
                 
-                <div className="space-y-4 mb-8">
+                <div className="space-y-4 mb-4">
                   <div className="flex items-start space-x-3">
                     <FaMapMarkerAlt className="text-pink-600 mt-1 flex-shrink-0" />
                     <div>
                       <p className="text-gray-700">
-                        Trung Tâm MC Q&K Bắc Giang<br />
+                       <span className="font-bold">Trung Tâm MC Q&K Bắc Giang</span><br />
                         Số 1 Nguyễn Văn Linh, phường Bắc Giang, tỉnh Bắc Ninh
                       </p>
                     </div>
@@ -263,7 +263,6 @@ const Footer = () => {
                 <p className="text-gray-700 font-bold">
                   © {currentYear} Trung Tâm MC Q&K Bắc Giang
                 </p>
-            
               </div>
               
               <div className="flex flex-wrap items-center justify-center md:justify-end space-x-6">
@@ -290,7 +289,9 @@ const Footer = () => {
           <div className="container mx-auto px-4">
             <div className="text-center">
               <p className="text-gray-700 text-base">
-                Trung Tâm MC Q&K Bắc Giang - Nâng tầm kỹ năng MC và giọng nói
+                Trung Tâm MC Q&K Bắc Giang 
+                <br />
+              Nâng tầm kỹ năng MC và giọng nói
               </p>
             </div>
           </div>

@@ -122,7 +122,7 @@ const VideoGallery: React.FC<VideoGalleryProps> = ({
           )}
 
           {/* Video Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 px-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 px-2">
             {videos.map((video) => (
               <div
                 key={video._id}
@@ -151,7 +151,7 @@ const VideoGallery: React.FC<VideoGalleryProps> = ({
 
                   {/* Video Type Badge */}
                   <div className="absolute top-1.5 right-1.5 md:top-3 md:right-3">
-                    <span className="px-1.5 py-0.5 md:px-2 md:py-1 bg-black/70 text-white text-[10px] md:text-xs rounded md:rounded-md backdrop-blur-sm">
+                    <span className="px-1.5 py-0.5 md:px-2 md:py-1 bg-black/70 text-white text-[12px] md:text-lg rounded md:rounded-md backdrop-blur-sm">
                       {video.videoType === "youtube" ? "Youtube" : "Facebook"}
                     </span>
                   </div>
@@ -159,43 +159,16 @@ const VideoGallery: React.FC<VideoGalleryProps> = ({
 
                 {/* Video Info */}
                 <div className="p-1.5 md:p-2">
-                  <h3 className="font-semibold text-xs md:text-sm text-gray-900 mb-1 md:mb-2 line-clamp-2 group-hover:text-pink-600 transition-colors">
+                  <h3 className="font-semibold px-2 text-base md:text-base text-gray-900 mb-1 md:mb-2 line-clamp-2 group-hover:text-pink-600 transition-colors">
                     {video.title}
                   </h3>
-                  {showDescription && video.description && (
-                    <p className="text-[10px] md:text-sm text-gray-600 line-clamp-2">
-                      {video.description}
-                    </p>
-                  )}
+               
                 </div>
               </div>
             ))}
           </div>
 
-          {/* View All Link */}
-          {videos.length >= maxVideos && (
-            <div className="text-center mt-4 md:mt-8">
-              <Link
-                href="/video-hoc-vien"
-                className="inline-flex items-center px-4 py-2 md:px-6 md:py-3 text-sm md:text-base bg-gradient-to-r from-pink-600 to-purple-600 text-white rounded-lg hover:from-pink-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
-              >
-                Xem tất cả video
-                <svg
-                  className="ml-2 w-4 h-4 md:w-5 md:h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </Link>
-            </div>
-          )}
+      
         </div>
       </section>
 

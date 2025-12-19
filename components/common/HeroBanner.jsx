@@ -37,7 +37,7 @@ const HeroBanner = () => {
         <div className="absolute bottom-10 right-1/4 w-[300px] h-[300px] bg-gradient-to-br from-rose-200 to-pink-100 blur-3xl rounded-full" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-16 sm:pt-24 lg:pt-20 md:pb-16 pb-6 min-h-screen lg:grid lg:grid-cols-2 lg:items-center md:gap-10 gap-1 items-center flex flex-col justify-center">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-28 sm:pt-24 lg:pt-20 md:pb-16 pb-6 min-h-screen lg:grid lg:grid-cols-2 lg:items-center md:gap-10 gap-1 items-center flex flex-col justify-center">
         <div className="space-y-8 text-center lg:text-left order-1 lg:order-1">
           <div className="inline-flex items-center gap-3 bg-white/70 backdrop-blur-lg border border-rose-100 px-4 py-2 rounded-full shadow-sm">
             <span className="text-pink-500 text-xl">💡</span>

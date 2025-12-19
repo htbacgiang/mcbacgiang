@@ -72,10 +72,10 @@ const VideoModal: React.FC<VideoModalProps> = ({ video, isOpen, onClose }) => {
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 w-10 h-10 bg-red-600 hover:bg-red-700 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
+          className="absolute top-4 right-4 z-20 w-6 h-6 md:w-10 md:h-10 bg-red-600 hover:bg-red-700 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
           aria-label="Đóng"
         >
-          <FaTimes className="w-5 h-5" />
+          <FaTimes className="md:w-5 md:h-5 w-3 h-3" />
         </button>
 
         {/* Video Container */}
@@ -99,12 +99,7 @@ const VideoModal: React.FC<VideoModalProps> = ({ video, isOpen, onClose }) => {
           )}
         </div>
 
-        {/* Video Title */}
-        {video.title && (
-          <div className="p-4 bg-gray-900 text-white">
-            <h3 className="text-lg font-semibold">{video.title}</h3>
-          </div>
-        )}
+     
       </div>
     </div>
   );

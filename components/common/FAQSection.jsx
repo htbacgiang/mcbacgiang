@@ -42,7 +42,7 @@ export default function FAQSection() {
       <div className="container mx-auto px-6 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left: FAQ Section */}
-          <div className="space-y-8">
+          <div className="space-y-4">
             <div>
               <p className="text-gray-600 text-sm uppercase tracking-widest mb-4 font-medium">
                 FAQ&apos;S
@@ -94,7 +94,7 @@ export default function FAQSection() {
           </div>
 
           {/* Right: Images Section */}
-          <div className="relative flex items-start justify-center gap-4 mt-8 pb-20">
+          <div className="relative flex items-start justify-center gap-4 mt-8 pb-8">
             {/* Left Image - Higher position */}
             <div className="relative w-72 h-96 -mt-8 group">
               <Image

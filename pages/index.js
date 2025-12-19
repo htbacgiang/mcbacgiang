@@ -75,8 +75,8 @@ export default function Home({ posts, meta }) {
       />
       <OrganicProcess />
       <ScrollingGallery />
-      <VideoGallery maxVideos={6} />
-      <div className="container mx-auto">
+      <VideoGallery maxVideos={4} />
+      <div className="container mx-auto mt-4">
         <div className="text-center mb-12 relative">
           <div className="flex items-center justify-center mb-4">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 uppercase">
@@ -85,7 +85,7 @@ export default function Home({ posts, meta }) {
           </div>
 
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 px-2 pb-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 px-4 pb-6">
           {posts.slice(0, 3).map((post) => (
             <PostCard key={post.slug} post={post} />
           ))}

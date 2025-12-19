@@ -3,7 +3,7 @@ import TeacherCard from "./TeacherCard";
 
 const TeachersSection = ({ teachers, title = "Đội ngũ giảng viên", subtitle = "Những chuyên gia hàng đầu trong lĩnh vực MC và truyền thông" }) => {
   return (
-    <section className="py-16 ">
+    <section className="py-8 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-8">

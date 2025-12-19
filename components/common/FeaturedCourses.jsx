@@ -146,7 +146,7 @@ const FeaturedCourses = ({
   // Error state
   if (error) {
     return (
-      <section className="py-20 bg-white">
+      <section className="py-6 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3 leading-tight uppercase">
@@ -230,20 +230,12 @@ const FeaturedCourses = ({
 
         {/* View All Button */}
         {showViewAll && displayCourses.length > 0 && (
-          <div className="text-center mt-12">
+          <div className="text-center mt-8">
             <Link
               href="/khoa-hoc"
-              style={{
-                background: 'linear-gradient(135deg, #ec4899 0%, #f43f5e 100%)',
-                color: 'white'
-              }}
-              className="inline-flex items-center space-x-2 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-              onMouseEnter={(e) => {
-                e.target.style.background = 'linear-gradient(135deg, #db2777 0%, #e11d48 100%)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.background = 'linear-gradient(135deg, #ec4899 0%, #f43f5e 100%)';
-              }}
+             
+              className="inline-flex items-center space-x-2 px-8 py-4 hover:text-pink-600 font-bold text-lg transition-all duration-300 transform hover:scale-105 "
+          
             >
               <span>Xem tất cả khóa học</span>
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -254,7 +246,7 @@ const FeaturedCourses = ({
         )}
 
         {/* Stats Section */}
-        <div className="mt-10 bg-gradient-to-r from-pink-50 via-rose-50 to-pink-50 rounded-3xl p-8">
+        <div className="mt-6 bg-gradient-to-r from-pink-50 via-rose-50 to-pink-50 rounded-3xl p-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
             <div>
               <div className="text-4xl font-bold text-pink-600 mb-2">1000+</div>

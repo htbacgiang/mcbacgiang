@@ -298,9 +298,7 @@ const ScrollingGallery = () => {
               Hình ảnh hoạt động tại <span className="text-pink-600">Q&K Bắc Giang</span>
             </h2>
           </div>
-          <p className="text-gray-600 text-lg max-w-5xl mx-auto">
-            Khám phá những khoảnh khắc đáng nhớ trong quá trình đào tạo và phát triển của các học viên tại Q&K Bắc Giang
-          </p>
+        
         </div>
 
         {/* Scrolling Gallery */}
