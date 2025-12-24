@@ -67,12 +67,12 @@ const ThumbnailSelector: FC<Props> = ({
         onChange={handleChange}
       />
       
-      {/* Thumbnail display and Gallery button row */}
-      <div className="flex gap-3 h-20">
+      {/* Thumbnail display and Gallery button - Same row */}
+      <div className="flex items-center gap-3">
         {/* Thumbnail display - Click to upload */}
-        <label htmlFor="thumbnail" className="cursor-pointer flex-1 h-full">
+        <label htmlFor="thumbnail" className="cursor-pointer flex-1">
           {selectedThumbnail ? (
-            <div className="thumbnail-section compact hover:opacity-80 transition-opacity h-full">
+            <div className="thumbnail-section compact hover:opacity-80 transition-opacity">
               <img
                 src={selectedThumbnail}
                 alt="Thumbnail"
@@ -80,7 +80,7 @@ const ThumbnailSelector: FC<Props> = ({
               />
             </div>
           ) : (
-            <PosterUI label="Ảnh đại diện" className="h-full" />
+            <PosterUI label="Ảnh đại diện" />
           )}
         </label>
 
@@ -88,9 +88,9 @@ const ThumbnailSelector: FC<Props> = ({
         {images && images.length > 0 && (
           <button
             onClick={() => setShowGalleryModal(true)}
-            className="bg-green-600 hover:bg-green-700 text-white text-sm font-medium px-3 rounded-lg transition-colors whitespace-nowrap h-full"
+            className="bg-green-600 hover:bg-green-700 text-white text-sm font-medium py-4 px-3 rounded-lg transition-colors whitespace-nowrap"
           >
-            🖼️ Chọn từ thư viện
+            Chọn từ thư viện
           </button>
         )}
       </div>

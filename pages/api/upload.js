@@ -22,7 +22,7 @@ export default async function handle(req, res) {
   const links = [];
   for (const file of files.file) {
     const result = await cloudinary.v2.uploader.upload(file.path, {
-      folder: process.env.CLOUDINARY_FOLDER || "btacademy",
+      folder: process.env.CLOUDINARY_FOLDER || "mcbacgiang",
       public_id: `file_${Date.now()}`,
       resource_type: "auto",
     });

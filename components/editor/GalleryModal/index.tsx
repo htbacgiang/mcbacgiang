@@ -184,7 +184,7 @@ const GalleryModal: FC<Props> = ({
       <div className="max-w-6xl w-full mx-4 bg-white dark:bg-gray-800 rounded-lg shadow-2xl overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
-          <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white">
             Thư viện ảnh
           </h2>
           <button
@@ -209,9 +209,9 @@ const GalleryModal: FC<Props> = ({
           </div>
 
           {/* Sidebar */}
-          <div className="w-80 border-l border-gray-200 dark:border-gray-700 p-6 space-y-6">
+          <div className="w-80 border-l border-gray-200 dark:border-gray-700 p-6 space-y-4">
             {/* Upload Section */}
-            <div className="space-y-4">
+            <div className="space-y-2">
               <h3 className="text-lg font-medium text-gray-900 dark:text-white">
                 Upload ảnh mới
               </h3>
@@ -237,7 +237,7 @@ const GalleryModal: FC<Props> = ({
 
             {/* Selected Image Preview */}
             {selectedImage && (
-              <div className="space-y-4">
+              <div className="space-y-2">
                 <h3 className="text-lg font-medium text-gray-900 dark:text-white">
                   Ảnh đã chọn
                 </h3>
@@ -321,22 +321,7 @@ const GalleryModal: FC<Props> = ({
                     Chọn ảnh này
                   </button>
                   
-                  {/* Test Session Button */}
-                  <button
-                    onClick={async () => {
-                      try {
-                        const response = await axios.get("/api/test-session");
-                        console.log("Test session response:", response.data);
-                        alert(JSON.stringify(response.data, null, 2));
-                      } catch (error: any) {
-                        console.error("Test session error:", error);
-                        alert("Error: " + (error.response?.data?.error || error.message));
-                      }
-                    }}
-                    className="w-full bg-gray-600 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg transition-colors"
-                  >
-                    Test Session
-                  </button>
+                 
                 </div>
               </div>
             )}
@@ -361,7 +346,7 @@ const GalleryModal: FC<Props> = ({
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white dark:bg-gray-800 rounded-lg p-6 w-96 max-w-full mx-4">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white">
                 Upload ảnh mới
               </h3>
               <button

@@ -60,7 +60,7 @@ const uploadNewImage: NextApiHandler = async (req, res) => {
     for (const imageFile of imageFiles) {
       const { secure_url: url } = await cloudinary.uploader.upload(
         imageFile.filepath,
-        { folder: process.env.CLOUDINARY_FOLDER || "btacademy" }
+        { folder: process.env.CLOUDINARY_FOLDER || "mcbacgiang" }
       );
       uploadedUrls.push(url);
     }

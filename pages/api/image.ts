@@ -27,7 +27,10 @@ const handler: NextApiHandler = (req, res) => {
   const { method } = req;
   switch (method) {
     case "POST": {
-      const { multiple, type } = req.query;
+      const { multiple, type, action } = req.query;
+      if (action === "migrate") {
+        return migrateImages(req, res);
+      }
       if (type === "avatar") {
         return uploadAvatar(req, res);
       }
@@ -63,9 +66,10 @@ const uploadNewImage: NextApiHandler = async (req, res) => {
       return res.status(400).json({ error: 'Chỉ hỗ trợ file JPEG, JPG, PNG, WEBP' });
     }
 
+    const folder = process.env.CLOUDINARY_FOLDER || "mcbacgiang";
     const { secure_url: url, public_id } = await cloudinary.uploader.upload(
       imageFile.filepath,
-      { folder: process.env.CLOUDINARY_FOLDER || "btacademy" }
+      { folder }
     );
 
     // Lưu thông tin ảnh vào database
@@ -75,6 +79,7 @@ const uploadNewImage: NextApiHandler = async (req, res) => {
       altText,
       publicId: public_id,
       uploadedBy: (session.user as any).sub,
+      folder,
     });
     await newImage.save();
 
@@ -105,7 +110,7 @@ const uploadAvatar: NextApiHandler = async (req, res) => {
 
     const { secure_url: url } = await cloudinary.uploader.upload(
       imageFile.filepath,
-      { folder: `${process.env.CLOUDINARY_FOLDER || "btacademy"}/avatar` }
+      { folder: `${process.env.CLOUDINARY_FOLDER || "mcbacgiang"}/avatar` }
     );
 
     res.json({ src: url });
@@ -130,7 +135,7 @@ const uploadMultipleImages: NextApiHandler = async (req, res) => {
       }
       const { secure_url: url } = await cloudinary.uploader.upload(
         file.filepath,
-        { folder: process.env.CLOUDINARY_FOLDER || "btacademy" }
+        { folder: process.env.CLOUDINARY_FOLDER || "mcbacgiang" }
       );
       uploadedUrls.push(url);
     }
@@ -148,20 +153,186 @@ const uploadMultipleImages: NextApiHandler = async (req, res) => {
 const readAllImages: NextApiHandler = async (req, res) => {
   try {
     await db.connectDb();
-    const images = await Image.find().sort({ createdAt: -1 });
-    console.log("Found images:", images.length);
+    const currentFolder = process.env.CLOUDINARY_FOLDER || "mcbacgiang";
     
-    const formattedImages = images.map(img => ({
-      src: img.src,
-      altText: img.altText || "",
-      id: img._id.toString()
-    }));
+    // Lấy ảnh từ database theo folder hiện tại
+    const images = await Image.find({ folder: currentFolder }).sort({ createdAt: -1 });
+    console.log(`Found ${images.length} images in folder: ${currentFolder}`);
     
-    console.log("Formatted images:", formattedImages.slice(0, 2)); // Log first 2 images
+    // Kiểm tra và lọc ảnh còn tồn tại trên Cloudinary
+    const validImages = [];
+    for (const img of images) {
+      try {
+        // Kiểm tra ảnh có tồn tại trên Cloudinary không
+        await cloudinary.api.resource(img.publicId);
+        validImages.push({
+          src: img.src,
+          altText: img.altText || "",
+          id: img._id.toString()
+        });
+      } catch (error: any) {
+        // Ảnh không tồn tại trên Cloudinary, xóa khỏi database
+        console.log(`Image ${img.publicId} not found in Cloudinary, removing from database`);
+        await Image.findByIdAndDelete(img._id);
+      }
+    }
     
-    res.json({ images: formattedImages });
+    console.log(`Returning ${validImages.length} valid images`);
+    
+    res.json({ images: validImages });
   } catch (error: any) {
     console.error('Error fetching images from database:', error);
+    res.status(500).json({ error: error.message });
+  }
+};
+
+// Migrate ảnh từ folder btacademy sang mcbacgiang
+const migrateImages: NextApiHandler = async (req, res) => {
+  try {
+    const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
+    const session = token ? { user: token } : null;
+    if (!session || !session.user || !(session.user as any).sub) {
+      return res.status(401).json({ error: "Bạn cần đăng nhập để migrate ảnh!" });
+    }
+
+    await db.connectDb();
+    const sourceFolder = "btacademy";
+    const targetFolder = process.env.CLOUDINARY_FOLDER || "mcbacgiang";
+
+    // Lấy tất cả ảnh từ Cloudinary folder btacademy
+    let cloudinaryResources: any[] = [];
+    try {
+      const result = await cloudinary.api.resources({
+        type: 'upload',
+        prefix: sourceFolder,
+        max_results: 500,
+      });
+      cloudinaryResources = result.resources || [];
+      // Sắp xếp theo thời gian tạo (mới nhất trước)
+      cloudinaryResources.sort((a, b) => {
+        const dateA = new Date(a.created_at).getTime();
+        const dateB = new Date(b.created_at).getTime();
+        return dateB - dateA;
+      });
+      console.log(`Found ${cloudinaryResources.length} images in Cloudinary folder ${sourceFolder}`);
+    } catch (error: any) {
+      console.error('Error fetching from Cloudinary:', error);
+    }
+
+    // Lấy ảnh từ database folder btacademy
+    const dbImages = await Image.find({ folder: sourceFolder });
+    console.log(`Found ${dbImages.length} images in database folder ${sourceFolder}`);
+
+    const migratedImages = [];
+    const failedImages = [];
+    const processedPublicIds = new Set<string>();
+
+    // Xử lý ảnh từ Cloudinary
+    for (const resource of cloudinaryResources) {
+      try {
+        const publicId = resource.public_id;
+        if (processedPublicIds.has(publicId)) continue;
+        processedPublicIds.add(publicId);
+
+        // Nếu ảnh đã ở folder đúng thì chỉ cần cập nhật database
+        if (resource.folder === targetFolder) {
+          const existingImg = await Image.findOne({ publicId });
+          if (existingImg) {
+            existingImg.folder = targetFolder;
+            await existingImg.save();
+          } else {
+            // Tạo record mới trong database
+            const newImage = new Image({
+              src: resource.secure_url,
+              altText: "",
+              publicId: publicId,
+              uploadedBy: (session.user as any).sub,
+              folder: targetFolder,
+            });
+            await newImage.save();
+          }
+          migratedImages.push(publicId);
+          continue;
+        }
+
+        // Move ảnh sang folder mới
+        const publicIdWithoutFolder = publicId.split('/').pop();
+        const newPublicId = `${targetFolder}/${publicIdWithoutFolder}`;
+
+        const renameResult = await cloudinary.uploader.rename(publicId, newPublicId);
+        
+        // Cập nhật hoặc tạo record trong database
+        const existingImg = await Image.findOne({ publicId: publicId });
+        if (existingImg) {
+          existingImg.publicId = newPublicId;
+          existingImg.src = renameResult.secure_url;
+          existingImg.folder = targetFolder;
+          await existingImg.save();
+        } else {
+          const newImage = new Image({
+            src: renameResult.secure_url,
+            altText: "",
+            publicId: newPublicId,
+            uploadedBy: (session.user as any).sub,
+            folder: targetFolder,
+          });
+          await newImage.save();
+        }
+        
+        migratedImages.push(newPublicId);
+        console.log(`Migrated: ${publicId} -> ${newPublicId}`);
+      } catch (error: any) {
+        console.error(`Failed to migrate ${resource.public_id}:`, error.message);
+        failedImages.push({ publicId: resource.public_id, error: error.message });
+      }
+    }
+
+    // Xử lý ảnh từ database chưa được xử lý
+    for (const img of dbImages) {
+      if (processedPublicIds.has(img.publicId)) continue;
+      
+      try {
+        const resource = await cloudinary.api.resource(img.publicId);
+        
+        if (resource.folder === targetFolder) {
+          img.folder = targetFolder;
+          await img.save();
+          migratedImages.push(img.publicId);
+          continue;
+        }
+
+        const publicIdWithoutFolder = img.publicId.split('/').pop();
+        const newPublicId = `${targetFolder}/${publicIdWithoutFolder}`;
+
+        const renameResult = await cloudinary.uploader.rename(img.publicId, newPublicId);
+        
+        img.publicId = newPublicId;
+        img.src = renameResult.secure_url;
+        img.folder = targetFolder;
+        await img.save();
+        
+        migratedImages.push(newPublicId);
+        console.log(`Migrated from DB: ${img.publicId} -> ${newPublicId}`);
+      } catch (error: any) {
+        console.error(`Failed to migrate ${img.publicId}:`, error.message);
+        failedImages.push({ publicId: img.publicId, error: error.message });
+        
+        // Nếu ảnh không tồn tại trên Cloudinary, xóa khỏi database
+        if (error.http_code === 404) {
+          await Image.findByIdAndDelete(img._id);
+        }
+      }
+    }
+
+    res.json({
+      success: true,
+      message: `Đã migrate ${migratedImages.length} ảnh từ ${sourceFolder} sang ${targetFolder}`,
+      migrated: migratedImages.length,
+      failed: failedImages.length,
+      failedImages: failedImages.slice(0, 10), // Chỉ trả về 10 lỗi đầu tiên
+    });
+  } catch (error: any) {
+    console.error('Error migrating images:', error);
     res.status(500).json({ error: error.message });
   }
 };

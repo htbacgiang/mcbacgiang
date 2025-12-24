@@ -288,10 +288,13 @@ const Footer = () => {
         <div className="border-t border-pink-200 py-4 bg-white/50">
           <div className="container mx-auto px-4">
             <div className="text-center">
-              <p className="text-gray-700 text-base">
+              <p className="text-gray-700 text-base md:hidden block">
                 Trung Tâm MC Q&K Bắc Giang 
                 <br />
               Nâng tầm kỹ năng MC và giọng nói
+              </p>
+              <p className="text-gray-700 text-base md:block hidden">
+                Trung Tâm MC Q&K Bắc Giang - Nâng tầm kỹ năng MC và giọng nói
               </p>
             </div>
           </div>
