@@ -3,7 +3,7 @@ export const locationOptions = [
   {
     code: "Q&K - Bắc Giang",
     name: "Trung tâm MC Q&K Bắc Giang",
-    address: "Số 1 Nguyễn Văn Linh, Phường Bắc Giang, TP. Bắc Giang"
+    address: "Số 1 Nguyễn Văn Linh, Phường Bắc Giang, tỉnh Bắc Ninh"
   },
 
   {

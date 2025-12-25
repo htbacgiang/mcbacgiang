@@ -106,7 +106,7 @@ const courseSchema = new mongoose.Schema(
     schedule: {
       type: String,
       trim: true,
-      default: "",
+      default: "2 buổi/tuần",
     },
     locations: {
       type: [String],

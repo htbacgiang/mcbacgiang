@@ -86,7 +86,7 @@ export default function ClassSchedulePage() {
               address: {
                 "@type": "PostalAddress",
                 addressCountry: "VN",
-                addressLocality: "TP. Bắc Giang",
+                addressLocality: "tỉnh Bắc Ninh",
                 addressRegion: "Bắc Giang",
                 streetAddress: "Số 1 Nguyễn Văn Linh, Phường Bắc Giang, tỉnh Bắc Ninh",
               },

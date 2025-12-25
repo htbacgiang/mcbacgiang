@@ -88,14 +88,14 @@ const AboutBTAcademyPage = () => {
         Trung tâm MC Q&K Bắc Giang: Đào tạo MC, Luyện Giọng, Sửa Ngọng Hiệu quả tại Bắc Giang, Bắc Ninh
       </h1>
          {/* Breadcrumb */}
-         <div className="bg-gradient-to-r from-pink-50 to-rose-50 border-b-2 border-rose-200 shadow-sm">
-          <div className="max-w-7xl mx-auto px-4 py-5">
+         <div className="">
+          <div className="max-w-7xl mx-auto px-4 py-2">
             <div className="flex items-center gap-3 text-base">
-              <Link href="/" className="font-semibold text-gray-700 hover:text-pink-600 hover:underline whitespace-nowrap transition-colors duration-200">
+              <Link href="/" className="font-semibold text-gray-700 whitespace-nowrap transition-colors duration-200">
                 Trang chủ
               </Link>
               <span className="text-pink-400 font-bold text-lg">›</span>
-              <span className="font-bold text-gray-800 bg-pink-100 px-1 py-1 rounded-full text-base">
+              <span className="font-bold text-gray-800 px-1 py-1 rounded-full text-base">
                 Giới thiệu Q&K Bắc Giang
               </span>
             </div>

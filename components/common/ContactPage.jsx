@@ -35,7 +35,7 @@ export default function ContactPage() {
   const contactInfo = {
     address: "Số 1 Nguyễn Văn Linh, Phường Bắc Giang, tỉnh Bắc Ninh",
     phone: "081 699 7000",
-    email: "lienhe@mcbacgiang.com",
+    email: "Qkstarvietnam@gmail.com",
     workingHours: {
       weekdays: "Thứ 2 - Thứ 7: 8:00 - 21:00",
       weekend: "Chủ nhật: 9:00 - 21:00"

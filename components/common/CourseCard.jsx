@@ -40,7 +40,7 @@ const CourseCard = ({
     }
     
     if (location.includes('Nguyễn Văn Linh') || location.includes('Bắc Giang')) {
-      return 'Trung tâm MC Q&K Bắc Giang - Số 1 Nguyễn Văn Linh, Phường Bắc Giang, TP. Bắc Giang';
+      return 'Trung tâm MC Q&K Bắc Giang - Số 1 Nguyễn Văn Linh, Phường Bắc Giang, TP. Bắc Ninh';
     }
     
     return location;

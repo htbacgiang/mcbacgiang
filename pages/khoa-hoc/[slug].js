@@ -156,14 +156,14 @@ const CourseDetail = ({ course, relatedCourses, meta }) => {
       </h1>
       <div className="min-h-screen ">
         {/* Breadcrumb */}
-        <div className="bg-gradient-to-r from-pink-50 to-rose-50 border-b-2 border-rose-200 shadow-sm">
+        <div className="">
           <div className="max-w-7xl mx-auto px-4 py-5">
             <div className="flex items-center gap-3 text-base">
               <Link href="/khoa-hoc" className="font-semibold text-gray-700 hover:text-pink-600 hover:underline whitespace-nowrap transition-colors duration-200">
                  Khóa học
               </Link>
               <span className="text-pink-400 font-bold text-lg">›</span>
-              <span className="font-bold text-gray-800 bg-pink-100 px-1 py-1 rounded-full text-base">
+              <span className="font-bold text-gray-800  px-1 py-1 rounded-full text-base">
                 {trimText(course.title, 30)}
               </span>
             </div>
