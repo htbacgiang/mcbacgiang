@@ -17,7 +17,11 @@ interface FormidablePromise<T> {
 export const readFile = <T extends object>(
   req: NextApiRequest
 ): Promise<FormidablePromise<T>> => {
-  const form = formidable();
+  const form = formidable({
+    maxFileSize: 10 * 1024 * 1024, // 10MB
+    maxFields: 100,
+    maxFieldsSize: 2 * 1024 * 1024, // 2MB cho fields
+  });
   return new Promise((resolve, reject) => {
     form.parse(req, (err, fields, files) => {
       if (err) reject(err);

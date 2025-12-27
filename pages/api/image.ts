@@ -15,7 +15,12 @@ export const config = {
 // Hàm tiện ích để parse form multipart/form-data, hỗ trợ multiples
 const parseForm = (req: any): Promise<{ files: any; fields: any }> => {
   return new Promise((resolve, reject) => {
-    const form = new IncomingForm({ multiples: true });
+    const form = new IncomingForm({ 
+      multiples: true,
+      maxFileSize: 10 * 1024 * 1024, // 10MB
+      maxFields: 100,
+      maxFieldsSize: 2 * 1024 * 1024, // 2MB cho fields
+    });
     form.parse(req, (err, fields, files) => {
       if (err) return reject(err);
       resolve({ files, fields });
@@ -64,6 +69,12 @@ const uploadNewImage: NextApiHandler = async (req, res) => {
     const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
     if (!allowedTypes.includes(imageFile.mimetype)) {
       return res.status(400).json({ error: 'Chỉ hỗ trợ file JPEG, JPG, PNG, WEBP' });
+    }
+
+    // Validate kích thước file (tối đa 10MB)
+    const maxFileSize = 10 * 1024 * 1024; // 10MB
+    if (imageFile.size > maxFileSize) {
+      return res.status(400).json({ error: 'Kích thước file không được vượt quá 10MB' });
     }
 
     const folder = process.env.CLOUDINARY_FOLDER || "mcbacgiang";
@@ -129,9 +140,13 @@ const uploadMultipleImages: NextApiHandler = async (req, res) => {
 
     // Validate và upload từng file
     const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
+    const maxFileSize = 10 * 1024 * 1024; // 10MB
     for (const file of imageFiles) {
       if (!allowedTypes.includes(file.mimetype)) {
         return res.status(400).json({ error: 'Chỉ hỗ trợ file JPEG, JPG, PNG, WEBP' });
+      }
+      if (file.size > maxFileSize) {
+        return res.status(400).json({ error: 'Kích thước file không được vượt quá 10MB' });
       }
       const { secure_url: url } = await cloudinary.uploader.upload(
         file.filepath,
