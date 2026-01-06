@@ -84,15 +84,14 @@ const ThumbnailSelector: FC<Props> = ({
           )}
         </label>
 
-        {/* Gallery button */}
-        {images && images.length > 0 && (
-          <button
-            onClick={() => setShowGalleryModal(true)}
-            className="bg-green-600 hover:bg-green-700 text-white text-sm font-medium py-4 px-3 rounded-lg transition-colors whitespace-nowrap"
-          >
-            Chọn từ thư viện
-          </button>
-        )}
+        {/* Gallery button - Luôn hiển thị để có thể upload ảnh mới */}
+        <button
+          onClick={() => setShowGalleryModal(true)}
+          className="bg-green-600 hover:bg-green-700 text-white text-sm font-medium py-4 px-3 rounded-lg transition-colors whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+          title={images && images.length > 0 ? "Chọn từ thư viện" : "Mở thư viện để upload ảnh mới"}
+        >
+          {images && images.length > 0 ? "Chọn từ thư viện" : "Thư viện ảnh"}
+        </button>
       </div>
 
       {/* Gallery Modal */}

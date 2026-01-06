@@ -54,6 +54,7 @@ const handler: NextApiHandler = (req, res) => {
 
 // Upload một ảnh lên Cloudinary
 const uploadNewImage: NextApiHandler = async (req, res) => {
+  let dbConnected = false;
   try {
     const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
     const session = token ? { user: token } : null;
@@ -85,6 +86,7 @@ const uploadNewImage: NextApiHandler = async (req, res) => {
 
     // Lưu thông tin ảnh vào database
     await db.connectDb();
+    dbConnected = true;
     const newImage = new Image({
       src: url,
       altText,
@@ -94,10 +96,29 @@ const uploadNewImage: NextApiHandler = async (req, res) => {
     });
     await newImage.save();
 
-    res.json({ src: url, altText, id: newImage._id });
+    console.log(`[uploadNewImage] Image uploaded successfully:`, {
+      url,
+      public_id,
+      id: newImage._id.toString(),
+      folder
+    });
+
+    res.json({ 
+      src: url, 
+      altText: altText || "", 
+      id: newImage._id.toString() 
+    });
   } catch (error: any) {
     console.error('Error uploading to Cloudinary:', error);
     res.status(500).json({ error: error.message });
+  } finally {
+    if (dbConnected) {
+      try {
+        await db.disconnectDb();
+      } catch (disconnectError) {
+        console.error('Error disconnecting from database:', disconnectError);
+      }
+    }
   }
 };
 
@@ -164,40 +185,89 @@ const uploadMultipleImages: NextApiHandler = async (req, res) => {
 
 
 
+// Helper function để kiểm tra ảnh với timeout
+const checkImageExists = async (publicId: string, timeoutMs: number = 5000): Promise<boolean> => {
+  return Promise.race([
+    cloudinary.api.resource(publicId).then(() => true).catch(() => false),
+    new Promise<boolean>((resolve) => setTimeout(() => resolve(false), timeoutMs))
+  ]);
+};
+
 // Đọc danh sách ảnh đã upload từ Cloudinary
 const readAllImages: NextApiHandler = async (req, res) => {
+  let dbConnected = false;
   try {
     await db.connectDb();
+    dbConnected = true;
     const currentFolder = process.env.CLOUDINARY_FOLDER || "mcbacgiang";
     
-    // Lấy ảnh từ database theo folder hiện tại
-    const images = await Image.find({ folder: currentFolder }).sort({ createdAt: -1 });
-    console.log(`Found ${images.length} images in folder: ${currentFolder}`);
+    console.log(`[readAllImages] Fetching images from folder: ${currentFolder}`);
     
-    // Kiểm tra và lọc ảnh còn tồn tại trên Cloudinary
-    const validImages = [];
-    for (const img of images) {
-      try {
-        // Kiểm tra ảnh có tồn tại trên Cloudinary không
-        await cloudinary.api.resource(img.publicId);
-        validImages.push({
-          src: img.src,
-          altText: img.altText || "",
-          id: img._id.toString()
-        });
-      } catch (error: any) {
-        // Ảnh không tồn tại trên Cloudinary, xóa khỏi database
-        console.log(`Image ${img.publicId} not found in Cloudinary, removing from database`);
-        await Image.findByIdAndDelete(img._id);
+    // Lấy ảnh từ database theo folder hiện tại
+    let images = await Image.find({ folder: currentFolder }).sort({ createdAt: -1 });
+    console.log(`[readAllImages] Found ${images.length} images in database for folder: ${currentFolder}`);
+    
+    // Nếu không có ảnh trong folder hiện tại, thử tìm trong các folder khác
+    if (images.length === 0) {
+      console.log(`[readAllImages] No images in ${currentFolder}, checking other folders...`);
+      const allImages = await Image.find({}).sort({ createdAt: -1 }).limit(100);
+      console.log(`[readAllImages] Found ${allImages.length} total images in database`);
+      
+      // Nếu có ảnh trong folder khác, lấy chúng
+      if (allImages.length > 0) {
+        images = allImages;
+        console.log(`[readAllImages] Using images from other folders`);
+      } else {
+        // Nếu database hoàn toàn trống, thử lấy từ Cloudinary trực tiếp
+        console.log(`[readAllImages] Database is empty, trying to fetch from Cloudinary...`);
+        try {
+          const cloudinaryResponse = await cloudinary.api.resources({
+            resource_type: "image",
+            type: "upload",
+            prefix: currentFolder,
+            max_results: 100,
+          });
+          
+          if (cloudinaryResponse.resources && cloudinaryResponse.resources.length > 0) {
+            console.log(`[readAllImages] Found ${cloudinaryResponse.resources.length} images in Cloudinary`);
+            // Trả về ảnh từ Cloudinary
+            const cloudinaryImages = cloudinaryResponse.resources.map((resource: any) => ({
+              src: resource.secure_url,
+              altText: "",
+              id: resource.public_id
+            }));
+            return res.json({ images: cloudinaryImages });
+          }
+        } catch (cloudinaryError: any) {
+          console.error(`[readAllImages] Error fetching from Cloudinary:`, cloudinaryError.message);
+        }
       }
     }
     
-    console.log(`Returning ${validImages.length} valid images`);
+    // Trả về ảnh ngay từ database mà không cần kiểm tra Cloudinary mỗi lần
+    // Việc kiểm tra Cloudinary có thể làm chậm và không cần thiết cho mỗi request
+    const validImages = images.map((img) => ({
+      src: img.src,
+      altText: img.altText || "",
+      id: img._id.toString()
+    }));
+    
+    console.log(`[readAllImages] Returning ${validImages.length} images`);
     
     res.json({ images: validImages });
   } catch (error: any) {
-    console.error('Error fetching images from database:', error);
-    res.status(500).json({ error: error.message });
+    console.error('[readAllImages] Error fetching images from database:', error);
+    console.error('[readAllImages] Error details:', error.stack);
+    // Trả về mảng rỗng thay vì lỗi để UI vẫn có thể hoạt động
+    res.status(200).json({ images: [] });
+  } finally {
+    if (dbConnected) {
+      try {
+        await db.disconnectDb();
+      } catch (disconnectError) {
+        console.error('[readAllImages] Error disconnecting from database:', disconnectError);
+      }
+    }
   }
 };
 

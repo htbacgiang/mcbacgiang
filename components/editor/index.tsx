@@ -56,6 +56,7 @@ const Editor: FC<Props> = ({
   const [isDraft, setIsDraft] = useState(true); // Mặc định là nháp khi tạo mới
   const [isFeatured, setIsFeatured] = useState(false); // Mặc định không phải bài nổi bật
   const [images, setImages] = useState<{ src: string; altText?: string; id?: string }[]>([]);
+  const [loadingImages, setLoadingImages] = useState(true); // Loading state cho images
   const [seoInitialValue, setSeoInitialValue] = useState<SeoResult>();
   const [post, setPost] = useState<FinalPost>({
     title: "",
@@ -78,29 +79,86 @@ const Editor: FC<Props> = ({
     btnTitle 
   });
 
-  const fetchImages = async () => {
-    const { data } = await axios("/api/image");
-    setImages(data.images);
+  const fetchImages = async (retryCount = 0) => {
+    const maxRetries = 3;
+    setLoadingImages(true);
+    try {
+      const { data } = await axios("/api/image", {
+        timeout: 30000, // 30 giây timeout
+      });
+      setImages(data.images || []);
+      setLoadingImages(false);
+    } catch (error: any) {
+      console.error('Error fetching images:', error);
+      
+      // Retry logic nếu chưa vượt quá số lần thử
+      if (retryCount < maxRetries) {
+        const delay = Math.pow(2, retryCount) * 1000; // Exponential backoff: 1s, 2s, 4s
+        console.log(`Retrying fetchImages in ${delay}ms (attempt ${retryCount + 1}/${maxRetries})`);
+        setTimeout(() => {
+          fetchImages(retryCount + 1);
+        }, delay);
+      } else {
+        // Nếu đã thử hết, set mảng rỗng để UI vẫn hoạt động
+        console.warn('Failed to fetch images after all retries, using empty array');
+        setImages([]);
+        setLoadingImages(false);
+      }
+    }
   };
 
   const handleImageUpload = async (imageData: File | { file: File; altText: string }) => {
     setUploading(true);
-    const formData = new FormData();
-    
-    // Kiểm tra xem có phải là object chứa file và altText không
-    if (typeof imageData === 'object' && 'file' in imageData && 'altText' in imageData) {
-      formData.append("image", imageData.file);
-      formData.append("altText", imageData.altText);
-    } else {
-      // Fallback cho trường hợp chỉ có file
-      formData.append("image", imageData as File);
-      formData.append("altText", "");
+    try {
+      const formData = new FormData();
+      
+      // Kiểm tra xem có phải là object chứa file và altText không
+      if (typeof imageData === 'object' && 'file' in imageData && 'altText' in imageData) {
+        formData.append("image", imageData.file);
+        formData.append("altText", imageData.altText);
+      } else {
+        // Fallback cho trường hợp chỉ có file
+        formData.append("image", imageData as File);
+        formData.append("altText", "");
+      }
+      
+      const { data } = await axios.post("/api/image", formData, {
+        timeout: 60000, // 60 giây timeout cho upload
+      });
+      
+      console.log('[handleImageUpload] Upload response:', data);
+      
+      // Thêm ảnh mới vào đầu danh sách với format đúng
+      const newImage = {
+        src: data.src,
+        altText: data.altText || "",
+        id: data.id || data.src // Fallback nếu không có id
+      };
+      
+      setImages(prev => {
+        // Kiểm tra xem ảnh đã tồn tại chưa (tránh duplicate)
+        const exists = prev.some(img => img.src === newImage.src || img.id === newImage.id);
+        if (exists) {
+          console.log('[handleImageUpload] Image already exists, skipping');
+          return prev;
+        }
+        return [newImage, ...prev];
+      });
+      
+      toast.success("Upload ảnh thành công!");
+      
+      // Refresh lại danh sách từ server để đảm bảo đồng bộ
+      // (chạy sau một chút để đảm bảo database đã được cập nhật)
+      setTimeout(() => {
+        fetchImages(0).catch(err => console.error('Error refreshing images:', err));
+      }, 500);
+    } catch (error: any) {
+      console.error('Error uploading image:', error);
+      const errorMessage = error.response?.data?.error || error.message || "Có lỗi xảy ra khi upload ảnh";
+      toast.error(errorMessage);
+    } finally {
+      setUploading(false);
     }
-    
-    const { data } = await axios.post("/api/image", formData);
-    setUploading(false);
-
-    setImages([data, ...images]);
   };
 
   const editor = useEditor({
@@ -331,7 +389,7 @@ const Editor: FC<Props> = ({
                 initialValue={post.thumbnail as string}
                 onChange={updateThumbnail}
                 images={images}
-                uploading={uploading}
+                uploading={uploading || loadingImages}
                 onFileSelect={handleImageUpload}
                 onImageFromGallery={(imageUrl) => {
                   setPost(prev => ({ ...prev, thumbnail: imageUrl }));
@@ -466,7 +524,7 @@ const Editor: FC<Props> = ({
           onSelect={handleImageSelection}
           images={images}
           onFileSelect={handleImageUpload}
-          uploading={uploading}
+          uploading={uploading || loadingImages}
         />
 
       </>
