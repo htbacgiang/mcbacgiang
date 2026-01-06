@@ -26,7 +26,7 @@ type PostData = {
     title: string;
     slug: string;
     category: string;
-    thumbnail?: string;
+    thumbnail?: string | null;
     createdAt: string; // Thêm createdAt cho bài viết gần đây
   }[];
 };
@@ -209,7 +209,7 @@ export const getServerSideProps: GetServerSideProps<
       title: p.title,
       slug: p.slug,
       category: p.category || "Uncategorized",
-      thumbnail: p.thumbnail?.url,
+      thumbnail: p.thumbnail?.url || null, // Sử dụng null thay vì undefined để có thể serialize
       createdAt: p.createdAt.toString(), // Đảm bảo có createdAt
     }));
 

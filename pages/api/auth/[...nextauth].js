@@ -36,6 +36,9 @@ export const authOptions = {
       },
       async authorize(credentials) {
         try {
+          // Đảm bảo kết nối MongoDB trước khi truy vấn
+          await db.connectDb();
+          
           const { email, phone, password } = credentials;
           if (!password) {
             throw new Error("Vui lòng nhập mật khẩu.");
@@ -74,6 +77,9 @@ export const authOptions = {
       // Xử lý khi user đăng nhập bằng Facebook
       if (account?.provider === "facebook") {
         try {
+          // Đảm bảo kết nối MongoDB trước khi truy vấn
+          await db.connectDb();
+          
           console.log(`OAuth signIn for ${user.email} via ${account.provider}`);
           
           // Kiểm tra xem user đã tồn tại chưa
@@ -185,6 +191,8 @@ export const authOptions = {
     
     async session({ session, token }) {
       try {
+        // Đảm bảo kết nối MongoDB trước khi truy vấn
+        await db.connectDb();
         
         if (token?.id) {
           const user = await User.findById(token.id);

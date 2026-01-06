@@ -167,13 +167,18 @@ const updatePost: NextApiHandler = async (req, res) => {
     const isDraft = (body as any).isDraft;
     const isFeatured = (body as any).isFeatured === 'true' || (body as any).isFeatured === true;
     
-    // Ensure slug is unique (excluding current post)
-    const uniqueSlug = await ensureUniqueSlug(slug, postId);
+    // Chỉ kiểm tra slug unique nếu slug thay đổi
+    // Nếu slug không đổi, giữ nguyên slug hiện tại để tránh lỗi duplicate key
+    let finalSlug = post.slug; // Mặc định giữ nguyên slug cũ
+    if (slug && slug.trim() !== post.slug) {
+      // Slug đã thay đổi, cần kiểm tra unique
+      finalSlug = await ensureUniqueSlug(slug.trim(), postId);
+    }
     
     post.title = title;
     post.content = content;
     post.meta = meta;
-    post.slug = uniqueSlug;
+    post.slug = finalSlug;
     post.category = category;
     
     // Cập nhật trạng thái nháp nếu có
