@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import VideoModal from "./VideoModal";
 import { FaPlay } from "react-icons/fa";
 
@@ -121,12 +120,12 @@ const VideoGallery: React.FC<VideoGalleryProps> = ({
             </div>
           )}
 
-          {/* Video Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 px-2">
+          {/* Video Grid - Desktop: 6 videos (3x2), Mobile: Horizontal Scroll */}
+          <div className="hidden lg:grid lg:grid-cols-3 gap-4 px-2">
             {videos.map((video) => (
               <div
                 key={video._id}
-                className="group relative bg-white rounded-lg md:rounded-xl overflow-hidden shadow-md md:shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1 md:hover:-translate-y-2"
+                className="group relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2"
                 onClick={() => handleVideoClick(video)}
               >
                 {/* Thumbnail */}
@@ -151,21 +150,70 @@ const VideoGallery: React.FC<VideoGalleryProps> = ({
 
                   {/* Video Type Badge */}
                   <div className="absolute top-1.5 right-1.5 md:top-3 md:right-3">
-                    <span className="px-1.5 py-0.5 md:px-2 md:py-1 bg-black/70 text-white text-[12px] md:text-lg rounded md:rounded-md backdrop-blur-sm">
+                    <span className="px-1.5 py-0.5 md:px-2 md:py-1 bg-black/70 text-white text-[12px] md:text-sm rounded md:rounded-md backdrop-blur-sm">
                       {video.videoType === "youtube" ? "Youtube" : "Facebook"}
                     </span>
                   </div>
                 </div>
 
                 {/* Video Info */}
-                <div className="p-1.5 md:p-2">
-                  <h3 className="font-semibold px-2 text-base md:text-base text-gray-900 mb-1 md:mb-2 line-clamp-2 group-hover:text-pink-600 transition-colors">
+                <div className="p-2">
+                  <h3 className="font-semibold px-2 text-base text-gray-900 mb-2 line-clamp-2 group-hover:text-pink-600 transition-colors">
                     {video.title}
                   </h3>
                
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Mobile Horizontal Scroll */}
+          <div className="lg:hidden overflow-x-auto pb-4 px-2 scrollbar-hide">
+            <div className="flex gap-3" style={{ width: 'max-content' }}>
+              {videos.map((video) => (
+                <div
+                  key={video._id}
+                  className="group relative bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer flex-shrink-0"
+                  style={{ width: '280px' }}
+                  onClick={() => handleVideoClick(video)}
+                >
+                  {/* Thumbnail */}
+                  <div className="relative aspect-video overflow-hidden bg-gray-200">
+                    <Image
+                      src={getThumbnailUrl(video)}
+                      alt={video.title}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = "/images/placeholder-video.jpg";
+                      }}
+                    />
+                    
+                    {/* Play Button Overlay */}
+                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
+                      <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <FaPlay className="text-pink-600 ml-1" size={18} />
+                      </div>
+                    </div>
+
+                    {/* Video Type Badge */}
+                    <div className="absolute top-1.5 right-1.5">
+                      <span className="px-1.5 py-0.5 bg-black/70 text-white text-[12px] rounded backdrop-blur-sm">
+                        {video.videoType === "youtube" ? "Youtube" : "Facebook"}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Video Info */}
+                  <div className="p-1.5">
+                    <h3 className="font-semibold px-2 text-sm text-gray-900 mb-1 line-clamp-2 group-hover:text-pink-600 transition-colors">
+                      {video.title}
+                    </h3>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
       

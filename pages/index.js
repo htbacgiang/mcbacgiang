@@ -75,7 +75,7 @@ export default function Home({ posts, meta }) {
       />
       <OrganicProcess />
       <ScrollingGallery />
-      <VideoGallery maxVideos={4} />
+      <VideoGallery maxVideos={6} />
       <div className="container mx-auto mt-4">
         <div className="text-center mb-12 relative">
           <div className="flex items-center justify-center mb-4">
