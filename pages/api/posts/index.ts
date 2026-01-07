@@ -126,14 +126,7 @@ const ensureUniqueSlug = async (rawSlug?: string): Promise<string> => {
   let candidate = baseSlug;
   let suffix = 1;
 
-  // Check if slug exists, excluding deleted posts
-  while (await Post.findOne({ 
-    slug: candidate,
-    $or: [
-      { deletedAt: null },
-      { deletedAt: { $exists: false } }
-    ]
-  })) {
+  while (await Post.findOne({ slug: candidate })) {
     candidate = `${baseSlug}-${suffix++}`;
   }
 

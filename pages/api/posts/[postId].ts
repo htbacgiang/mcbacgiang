@@ -102,64 +102,6 @@ const removePost: NextApiHandler = async (req, res) => {
   }
 };
 
-// Helper function to ensure unique slug (excluding current post)
-const ensureUniqueSlug = async (rawSlug: string, excludePostId: string, currentSlug?: string): Promise<string> => {
-  const baseSlug = rawSlug.trim();
-  let candidate = baseSlug;
-  let suffix = 1;
-
-  // Import mongoose để sử dụng Types.ObjectId nếu cần
-  const mongoose = require('mongoose');
-  
-  // Chuyển đổi excludePostId sang ObjectId nếu cần
-  let excludeId = excludePostId;
-  if (mongoose.Types.ObjectId.isValid(excludePostId)) {
-    excludeId = new mongoose.Types.ObjectId(excludePostId);
-  }
-
-  console.log(`ensureUniqueSlug: checking slug "${candidate}" excluding postId: ${excludePostId}, currentSlug: ${currentSlug || 'none'}`);
-
-  // Check if slug exists, excluding the current post and deleted posts
-  // Nếu candidate trùng với currentSlug, bỏ qua (vì đó là slug hiện tại của bài viết)
-  let existingPost = await Post.findOne({ 
-    slug: candidate, 
-    _id: { $ne: excludeId },
-    $or: [
-      { deletedAt: null },
-      { deletedAt: { $exists: false } }
-    ]
-  });
-
-  // Nếu slug trùng với currentSlug, không cần thay đổi
-  if (candidate === currentSlug) {
-    console.log(`Slug "${candidate}" matches current slug, keeping it`);
-    return candidate;
-  }
-
-  while (existingPost) {
-    console.log(`Slug "${candidate}" already exists (postId: ${existingPost._id}), trying with suffix ${suffix}`);
-    candidate = `${baseSlug}-${suffix++}`;
-    
-    // Nếu candidate mới trùng với currentSlug, bỏ qua và tiếp tục
-    if (candidate === currentSlug) {
-      candidate = `${baseSlug}-${suffix++}`;
-      continue;
-    }
-    
-    existingPost = await Post.findOne({ 
-      slug: candidate, 
-      _id: { $ne: excludeId },
-      $or: [
-        { deletedAt: null },
-        { deletedAt: { $exists: false } }
-      ]
-    });
-  }
-
-  console.log(`ensureUniqueSlug: returning unique slug "${candidate}"`);
-  return candidate;
-};
-
 const updatePost: NextApiHandler = async (req, res) => {
   const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
   const session = token ? { user: token } : null;
@@ -204,57 +146,17 @@ const updatePost: NextApiHandler = async (req, res) => {
     const isDraft = (body as any).isDraft;
     const isFeatured = (body as any).isFeatured === 'true' || (body as any).isFeatured === true;
     
-    // Xử lý slug: chỉ cập nhật nếu slug được cung cấp và khác với slug hiện tại
-    // Nếu slug không được cung cấp hoặc giống với slug hiện tại, giữ nguyên
-    let finalSlug = post.slug; // Mặc định giữ nguyên slug cũ
-    const newSlug = slug ? slug.trim() : '';
-    const currentSlug = post.slug ? post.slug.trim() : '';
-    
-    if (newSlug && newSlug !== currentSlug) {
-      // Slug đã thay đổi, cần kiểm tra xem có trùng với bài viết khác không
-      console.log(`Slug changed from "${currentSlug}" to "${newSlug}"`);
-      
-      // Kiểm tra xem slug mới có trùng với bài viết khác không
-      const mongoose = require('mongoose');
-      let excludeId = postId;
-      if (mongoose.Types.ObjectId.isValid(postId)) {
-        excludeId = new mongoose.Types.ObjectId(postId);
-      }
-      
-      const existingPost = await Post.findOne({ 
-        slug: newSlug, 
-        _id: { $ne: excludeId },
-        $or: [
-          { deletedAt: null },
-          { deletedAt: { $exists: false } }
-        ]
-      });
-      
-      if (existingPost) {
-        // Slug đã tồn tại ở bài viết khác, trả về lỗi
-        return res.status(400).json({ 
-          error: `Slug "${newSlug}" đã tồn tại. Vui lòng chọn slug khác.` 
-        });
-      }
-      
-      // Slug là unique, có thể sử dụng
-      finalSlug = newSlug;
-      console.log(`Slug is unique, using: "${finalSlug}"`);
-    } else {
-      console.log(`Slug unchanged, keeping: "${currentSlug}"`);
-    }
-    
     post.title = title;
     post.content = content;
     post.meta = meta;
-    post.slug = finalSlug;
+    post.slug = slug;
     post.category = category;
     
     // Cập nhật trạng thái nháp nếu có
     if (typeof isDraft === 'boolean') {
       post.isDraft = isDraft;
     }
-
+    
     // Cập nhật trạng thái nổi bật nếu có
     if (typeof isFeatured === 'boolean') {
       post.isFeatured = isFeatured;
@@ -278,14 +180,14 @@ const updatePost: NextApiHandler = async (req, res) => {
       }
       
       try {
-      // File upload mới - upload lên cloudinary
-      const { secure_url: url, public_id } = await cloudinary.uploader.upload(
+        // File upload mới - upload lên cloudinary
+        const { secure_url: url, public_id } = await cloudinary.uploader.upload(
           thumbnailFile.filepath,
-        { folder: process.env.CLOUDINARY_FOLDER || "btacademy" }
-      );
-      const oldPublicId = post.thumbnail?.public_id;
-      if (oldPublicId) await cloudinary.uploader.destroy(oldPublicId);
-      post.thumbnail = { url, public_id };
+          { folder: process.env.CLOUDINARY_FOLDER || "btacademy" }
+        );
+        const oldPublicId = post.thumbnail?.public_id;
+        if (oldPublicId) await cloudinary.uploader.destroy(oldPublicId);
+        post.thumbnail = { url, public_id };
       } catch (cloudinaryError: any) {
         console.error("Lỗi upload thumbnail lên Cloudinary:", cloudinaryError);
         return res.status(500).json({ 
@@ -297,7 +199,6 @@ const updatePost: NextApiHandler = async (req, res) => {
       post.thumbnail = { url: thumbnailUrl.trim() };
     }
 
-    // Lưu bài viết
     await post.save();
     res.json({ post, message: "Cập nhật thành công!" });
   } catch (error: any) {
@@ -306,13 +207,6 @@ const updatePost: NextApiHandler = async (req, res) => {
     if (errorMessage.includes("api_key") || errorMessage.includes("Must supply")) {
       return res.status(500).json({ 
         error: "Cấu hình Cloudinary chưa đầy đủ. Vui lòng kiểm tra các biến môi trường CLOUD_NAME, CLOUD_API_KEY, CLOUD_API_SECRET trên VPS." 
-      });
-    }
-    // Xử lý lỗi duplicate key - trả về lỗi rõ ràng
-    if (error.code === 11000 && error.keyPattern?.slug) {
-      const duplicateSlug = error.keyValue?.slug || 'slug này';
-      return res.status(400).json({ 
-        error: `Slug "${duplicateSlug}" đã tồn tại. Vui lòng chọn slug khác.` 
       });
     }
     res.status(500).json({ error: errorMessage });
